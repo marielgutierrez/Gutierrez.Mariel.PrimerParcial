@@ -5,3 +5,10 @@
     Economica,
     Premium
 }
+
+public enum EPerfil
+{
+    vendedor,
+    supervisor,
+    administrador
+}
