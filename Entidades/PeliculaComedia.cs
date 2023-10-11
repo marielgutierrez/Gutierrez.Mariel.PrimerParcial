@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Azafata : Tripulante
+    public class PeliculaComedia : Peliculas
     {
 
     }

@@ -29,6 +29,10 @@ namespace Entidades
 
         public Usuario() { }
 
+        public static string FormatearUsuario(Usuario u)
+        {
+            return $"[{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")}]";
+        }
 
 
     }

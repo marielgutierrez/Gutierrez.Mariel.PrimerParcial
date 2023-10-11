@@ -1,8 +1,8 @@
 namespace Formulario
 {
-    public partial class FormLogin : Form
+    public partial class FrmLogin : Form
     {
-        public FormLogin()
+        public FrmLogin()
         {
             InitializeComponent();
         }

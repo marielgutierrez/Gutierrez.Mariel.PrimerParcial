@@ -1,9 +1,10 @@
-﻿public enum EClase
+﻿public enum ENacionalidad
 {
-    Primera,
-    Ejecutiva,
-    Economica,
-    Premium
+    EstadoUnidense,
+    Argentina,
+    Coreana,
+    Japonesa,
+
 }
 
 public enum EPerfil

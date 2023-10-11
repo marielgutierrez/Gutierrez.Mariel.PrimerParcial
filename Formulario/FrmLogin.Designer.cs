@@ -1,6 +1,6 @@
 ﻿namespace Formulario
 {
-    partial class FormLogin
+    partial class FrmLogin
     {
         /// <summary>
         ///  Required designer variable.
