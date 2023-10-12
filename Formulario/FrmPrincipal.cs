@@ -32,29 +32,28 @@ namespace Formulario
             int duracion = Convert.ToInt32(txtDuracion.Text);
             int año = Convert.ToInt32(txtAño.Text);
 
-            Peliculas pelicula;
 
             if (cmbGenero.SelectedItem.ToString() == "Acción")
             {
-                pelicula = new PeliculaAccion { Titulo = titulo, Duracion = duracion, Año = año };
+                FormPeliculaAccion frmpeliaccion = new FormPeliculaAccion();
+                frmpeliaccion.ShowDialog();
             }
             else if (cmbGenero.SelectedItem.ToString() == "Comedia")
             {
-                pelicula = new PeliculaComedia { Titulo = titulo, Duracion = duracion, Año = año };
+                //pelicula = new PeliculaComedia { Titulo = titulo, Duracion = duracion, Año = año };
             }
             else
             {
                 // En caso de otros géneros o si no se selecciona ninguno, usa la clase base Pelicula
-                pelicula = new PeliculaTerror { Titulo = titulo, Duracion = duracion, Año = año };
             }
 
-            MessageBox.Show($"Se ha guardado la película: {pelicula.Titulo}, Género: {pelicula.GetType().Name}");
+            MessageBox.Show($"Se ha guardado la película:, Género: ");
 
-            lstPeliculas.Items.Add(pelicula);
+            //lstPeliculas.Items.Add(pelicula);
 
-            txtTitulo.Clear();
-            txtDuracion.Clear();
-            txtAño.Clear();
+            //txtTitulo.Clear();
+            //txtDuracion.Clear();
+            //txtAño.Clear();
         }
 
     }
