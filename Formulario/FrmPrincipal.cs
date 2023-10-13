@@ -43,17 +43,14 @@ namespace Formulario
                 {
                     case "Acción":
                         FormPeliculaAccion frmpeliaccion = new FormPeliculaAccion();
-                        frmpeliaccion.StartPosition = FormStartPosition.CenterScreen;
                         frmpeliaccion.ShowDialog();
                         break;
                     case "Comedia":
                         FormPeliculaComedia frmpelicomedia = new FormPeliculaComedia();
-                        frmpelicomedia.StartPosition = FormStartPosition.CenterScreen;
                         frmpelicomedia.ShowDialog();
                         break;
                     case "Terror":
                         FormPeliculaTerror frmpeliterror = new FormPeliculaTerror();
-                        frmpeliterror.StartPosition = FormStartPosition.CenterScreen;
                         frmpeliterror.ShowDialog();
                         break;
                 }

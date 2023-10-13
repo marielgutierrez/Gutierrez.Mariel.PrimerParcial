@@ -15,12 +15,17 @@ namespace Formulario
         public FormPeliculaTerror()
         {
             InitializeComponent();
-            btnCancelar.Click += btnCancelar_Click;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            base.btnCancelar_Click(sender, e);
         }
     }
 }

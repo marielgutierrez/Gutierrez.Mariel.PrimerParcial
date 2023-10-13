@@ -63,7 +63,7 @@ namespace Formulario
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); //agregar algun aviso de si quiere cerrar
         }
 
     }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class PeliculaComedia : Pelicula
+    public class MisPeliculas
     {
+
+
 
     }
 }

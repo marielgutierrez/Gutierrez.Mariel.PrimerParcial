@@ -29,10 +29,14 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
-            label8 = new Label();
             label9 = new Label();
+            label8 = new Label();
             groupBox2.SuspendLayout();
             SuspendLayout();
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // groupBox2
             // 
@@ -45,6 +49,15 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Características";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(26, 83);
+            label9.Name = "label9";
+            label9.Size = new Size(100, 15);
+            label9.TabIndex = 1;
+            label9.Text = "Escenas graciosas";
+            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -55,15 +68,6 @@
             label8.Text = "Tipo de comedia:";
             label8.Click += label8_Click;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(26, 83);
-            label9.Name = "label9";
-            label9.Size = new Size(100, 15);
-            label9.TabIndex = 1;
-            label9.Text = "Escenas graciosas";
-            // 
             // FormPeliculaComedia
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -73,6 +77,7 @@
             Name = "FormPeliculaComedia";
             Text = "FormPelisComedia";
             Load += FormPelisComedia_Load;
+            Controls.SetChildIndex(btnCancelar, 0);
             Controls.SetChildIndex(groupBox2, 0);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();

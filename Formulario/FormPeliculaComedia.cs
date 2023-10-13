@@ -15,7 +15,7 @@ namespace Formulario
         public FormPeliculaComedia()
         {
             InitializeComponent();
-            btnCancelar.Click += btnCancelar_Click;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void FormPelisComedia_Load(object sender, EventArgs e)
@@ -26,6 +26,11 @@ namespace Formulario
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            base.btnCancelar_Click(sender, e);
         }
     }
 }

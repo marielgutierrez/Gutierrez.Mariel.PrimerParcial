@@ -15,9 +15,13 @@ namespace Formulario
         public FormPeliculaAccion()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            //btnCancelar.Click += btnCancelar_Click;
+        }
 
-
-            btnCancelar.Click += btnCancelar_Click;
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            base.btnCancelar_Click(sender, e);
         }
     }
 }

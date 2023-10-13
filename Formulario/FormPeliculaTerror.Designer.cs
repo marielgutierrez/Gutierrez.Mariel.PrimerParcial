@@ -29,17 +29,21 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
-            label8 = new Label();
-            comboBox2 = new ComboBox();
-            comboBox3 = new ComboBox();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            radioButton3 = new RadioButton();
-            checkBox1 = new CheckBox();
             radioButton4 = new RadioButton();
+            checkBox1 = new CheckBox();
+            radioButton3 = new RadioButton();
+            label11 = new Label();
+            label10 = new Label();
+            label9 = new Label();
+            comboBox3 = new ComboBox();
+            comboBox2 = new ComboBox();
+            label8 = new Label();
             groupBox2.SuspendLayout();
             SuspendLayout();
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // groupBox2
             // 
@@ -59,57 +63,25 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Características";
             // 
-            // label8
+            // radioButton4
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(21, 88);
-            label8.Name = "label8";
-            label8.Size = new Size(110, 15);
-            label8.TabIndex = 0;
-            label8.Text = "Personaje principal:";
+            radioButton4.AutoSize = true;
+            radioButton4.Location = new Point(232, 133);
+            radioButton4.Name = "radioButton4";
+            radioButton4.Size = new Size(41, 19);
+            radioButton4.TabIndex = 8;
+            radioButton4.TabStop = true;
+            radioButton4.Text = "No";
+            radioButton4.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // checkBox1
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(143, 32);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(155, 23);
-            comboBox2.TabIndex = 1;
-            // 
-            // comboBox3
-            // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(143, 80);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(155, 23);
-            comboBox3.TabIndex = 2;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(21, 35);
-            label9.Name = "label9";
-            label9.Size = new Size(81, 15);
-            label9.TabIndex = 3;
-            label9.Text = "Tipo de terror:";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(21, 133);
-            label10.Name = "label10";
-            label10.Size = new Size(145, 15);
-            label10.TabIndex = 4;
-            label10.Text = "Elementos sobrenaturales:";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(21, 169);
-            label11.Name = "label11";
-            label11.Size = new Size(116, 15);
-            label11.TabIndex = 5;
-            label11.Text = "Música de suspenso:";
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(143, 170);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(15, 14);
+            checkBox1.TabIndex = 7;
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // radioButton3
             // 
@@ -122,25 +94,57 @@
             radioButton3.Text = "Sí";
             radioButton3.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // label11
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(143, 170);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(15, 14);
-            checkBox1.TabIndex = 7;
-            checkBox1.UseVisualStyleBackColor = true;
+            label11.AutoSize = true;
+            label11.Location = new Point(21, 169);
+            label11.Name = "label11";
+            label11.Size = new Size(116, 15);
+            label11.TabIndex = 5;
+            label11.Text = "Música de suspenso:";
             // 
-            // radioButton4
+            // label10
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(232, 133);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(41, 19);
-            radioButton4.TabIndex = 8;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "No";
-            radioButton4.UseVisualStyleBackColor = true;
+            label10.AutoSize = true;
+            label10.Location = new Point(21, 133);
+            label10.Name = "label10";
+            label10.Size = new Size(145, 15);
+            label10.TabIndex = 4;
+            label10.Text = "Elementos sobrenaturales:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(21, 35);
+            label9.Name = "label9";
+            label9.Size = new Size(81, 15);
+            label9.TabIndex = 3;
+            label9.Text = "Tipo de terror:";
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(143, 80);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(155, 23);
+            comboBox3.TabIndex = 2;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(143, 32);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(155, 23);
+            comboBox2.TabIndex = 1;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(21, 88);
+            label8.Name = "label8";
+            label8.Size = new Size(110, 15);
+            label8.TabIndex = 0;
+            label8.Text = "Personaje principal:";
             // 
             // FormPeliculaTerror
             // 
@@ -150,6 +154,7 @@
             Controls.Add(groupBox2);
             Name = "FormPeliculaTerror";
             Text = "FormPeliculaTerror";
+            Controls.SetChildIndex(btnCancelar, 0);
             Controls.SetChildIndex(groupBox2, 0);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
