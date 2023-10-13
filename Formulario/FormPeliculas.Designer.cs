@@ -215,6 +215,7 @@
             btnCancelar.TabIndex = 14;
             btnCancelar.Text = "CANCELAR";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // FormPeliculas
             // 
@@ -252,6 +253,6 @@
         private Label label7;
         private Label label6;
         private ComboBox comboBox1;
-        private Button btnCancelar;
+        protected Button btnCancelar;
     }
 }

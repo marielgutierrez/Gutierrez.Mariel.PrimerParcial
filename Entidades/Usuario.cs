@@ -9,23 +9,23 @@ namespace Entidades
     public class Usuario
     {
 
-        private string nombre;
+        //private string nombre;
         private string apellido;
         private int legajo;
-        private string correo;
-        private string clave;
+        //private string correo;
+        //private string clave;
         private EPerfil perfil;
 
-        public string Correo
+        
+        public string nombre { get; set; }
+        public string correo  { get; set; }
+        public string clave { get; set; }
+
+
+        public override string ToString()
         {
-            get { return this.correo; }
+            return $"usuario: {this.correo} - nombre: {this.nombre}";
         }
-
-        public string Clave 
-        { 
-            get { return this.clave; } 
-        }
-
 
         public Usuario() { }
 

@@ -30,51 +30,30 @@
         {
             cmbGenero = new ComboBox();
             btnCrearPeli = new Button();
-            txtTitulo = new TextBox();
-            txtDuracion = new TextBox();
-            txtAño = new TextBox();
             lstPeliculas = new ListBox();
             label1 = new Label();
+            lblUsuario = new Label();
+            label2 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // cmbGenero
             // 
             cmbGenero.FormattingEnabled = true;
-            cmbGenero.Location = new Point(90, 217);
+            cmbGenero.Location = new Point(75, 117);
             cmbGenero.Name = "cmbGenero";
-            cmbGenero.Size = new Size(182, 23);
+            cmbGenero.Size = new Size(204, 23);
             cmbGenero.TabIndex = 0;
             // 
             // btnCrearPeli
             // 
-            btnCrearPeli.Location = new Point(110, 322);
+            btnCrearPeli.Location = new Point(96, 162);
             btnCrearPeli.Name = "btnCrearPeli";
-            btnCrearPeli.Size = new Size(189, 23);
+            btnCrearPeli.Size = new Size(146, 36);
             btnCrearPeli.TabIndex = 1;
             btnCrearPeli.Text = "Crear Pelicula";
             btnCrearPeli.UseVisualStyleBackColor = true;
             btnCrearPeli.Click += btnCrearPeli_Click;
-            // 
-            // txtTitulo
-            // 
-            txtTitulo.Location = new Point(74, 79);
-            txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(100, 23);
-            txtTitulo.TabIndex = 2;
-            // 
-            // txtDuracion
-            // 
-            txtDuracion.Location = new Point(51, 125);
-            txtDuracion.Name = "txtDuracion";
-            txtDuracion.Size = new Size(100, 23);
-            txtDuracion.TabIndex = 3;
-            // 
-            // txtAño
-            // 
-            txtAño.Location = new Point(51, 174);
-            txtAño.Name = "txtAño";
-            txtAño.Size = new Size(100, 23);
-            txtAño.TabIndex = 4;
             // 
             // lstPeliculas
             // 
@@ -95,16 +74,43 @@
             label1.TabIndex = 6;
             label1.Text = "Mis Peliculas";
             // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.Location = new Point(12, 9);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(38, 15);
+            lblUsuario.TabIndex = 7;
+            lblUsuario.Text = "label2";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(86, 79);
+            label2.Name = "label2";
+            label2.Size = new Size(167, 15);
+            label2.TabIndex = 8;
+            label2.Text = "Seleccione un tipo de pelicula:";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(602, 376);
+            button1.Name = "button1";
+            button1.Size = new Size(124, 23);
+            button1.TabIndex = 9;
+            button1.Text = "Salir de la App";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(749, 450);
+            ClientSize = new Size(749, 436);
+            Controls.Add(button1);
+            Controls.Add(label2);
+            Controls.Add(lblUsuario);
             Controls.Add(label1);
             Controls.Add(lstPeliculas);
-            Controls.Add(txtAño);
-            Controls.Add(txtDuracion);
-            Controls.Add(txtTitulo);
             Controls.Add(btnCrearPeli);
             Controls.Add(cmbGenero);
             Name = "FrmPrincipal";
@@ -118,10 +124,10 @@
 
         private ComboBox cmbGenero;
         private Button btnCrearPeli;
-        private TextBox txtTitulo;
-        private TextBox txtDuracion;
-        private TextBox txtAño;
         private ListBox lstPeliculas;
         private Label label1;
+        private Label lblUsuario;
+        private Label label2;
+        private Button button1;
     }
 }

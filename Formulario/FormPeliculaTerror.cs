@@ -15,6 +15,7 @@ namespace Formulario
         public FormPeliculaTerror()
         {
             InitializeComponent();
+            btnCancelar.Click += btnCancelar_Click;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

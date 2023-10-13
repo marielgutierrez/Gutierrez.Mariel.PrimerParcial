@@ -15,6 +15,7 @@ namespace Formulario
         public FormPeliculaComedia()
         {
             InitializeComponent();
+            btnCancelar.Click += btnCancelar_Click;
         }
 
         private void FormPelisComedia_Load(object sender, EventArgs e)

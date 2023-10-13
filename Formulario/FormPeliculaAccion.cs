@@ -15,6 +15,9 @@ namespace Formulario
         public FormPeliculaAccion()
         {
             InitializeComponent();
+
+
+            btnCancelar.Click += btnCancelar_Click;
         }
     }
 }

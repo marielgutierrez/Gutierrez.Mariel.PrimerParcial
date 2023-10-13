@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            btnIngresar = new Button();
             btnSalir = new Button();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtCorreo = new TextBox();
+            txtClave = new TextBox();
             label2 = new Label();
             label3 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // btnIngresar
             // 
-            button1.BackColor = Color.LimeGreen;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(27, 186);
-            button1.Name = "button1";
-            button1.Size = new Size(312, 45);
-            button1.TabIndex = 0;
-            button1.Text = "INGRESAR";
-            button1.UseVisualStyleBackColor = false;
+            btnIngresar.BackColor = Color.LimeGreen;
+            btnIngresar.FlatStyle = FlatStyle.Popup;
+            btnIngresar.ForeColor = SystemColors.ControlText;
+            btnIngresar.Location = new Point(27, 186);
+            btnIngresar.Name = "btnIngresar";
+            btnIngresar.Size = new Size(312, 45);
+            btnIngresar.TabIndex = 0;
+            btnIngresar.Text = "INGRESAR";
+            btnIngresar.UseVisualStyleBackColor = false;
+            btnIngresar.Click += btnIngresar_Click;
             // 
             // btnSalir
             // 
@@ -69,19 +70,20 @@
             label1.TabIndex = 2;
             label1.Text = "INICIO SESION";
             // 
-            // textBox1
+            // txtCorreo
             // 
-            textBox1.Location = new Point(27, 96);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(312, 23);
-            textBox1.TabIndex = 3;
+            txtCorreo.Location = new Point(27, 96);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(312, 23);
+            txtCorreo.TabIndex = 3;
             // 
-            // textBox2
+            // txtClave
             // 
-            textBox2.Location = new Point(27, 145);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(312, 23);
-            textBox2.TabIndex = 4;
+            txtClave.Location = new Point(27, 145);
+            txtClave.Name = "txtClave";
+            txtClave.PasswordChar = '*';
+            txtClave.Size = new Size(312, 23);
+            txtClave.TabIndex = 4;
             // 
             // label2
             // 
@@ -101,20 +103,20 @@
             label3.TabIndex = 6;
             label3.Text = "Contraseña:";
             // 
-            // FormLogin
+            // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(366, 319);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtClave);
+            Controls.Add(txtCorreo);
             Controls.Add(label1);
             Controls.Add(btnSalir);
-            Controls.Add(button1);
+            Controls.Add(btnIngresar);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormLogin";
+            Name = "FrmLogin";
             Text = "Form1";
             Load += FormLogin_Load;
             ResumeLayout(false);
@@ -123,11 +125,11 @@
 
         #endregion
 
-        private Button button1;
+        private Button btnIngresar;
         private Button btnSalir;
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtCorreo;
+        private TextBox txtClave;
         private Label label2;
         private Label label3;
     }

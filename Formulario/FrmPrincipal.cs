@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,9 +17,14 @@ namespace Formulario
         public FrmPrincipal()
         {
             InitializeComponent();
-            cmbGenero.Items.Add("Accion");
+            cmbGenero.Items.Add("Acción");
             cmbGenero.Items.Add("Comedia");
             cmbGenero.Items.Add("Terror");
+        }
+
+        public FrmPrincipal(Usuario u) : this()
+        {
+            lblUsuario.Text = $"Bienvenido {u.nombre} - [{DateTime.Now.ToString("dd/MM/yyyy")}]";
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
@@ -28,26 +34,58 @@ namespace Formulario
 
         private void btnCrearPeli_Click(object sender, EventArgs e)
         {
-            string titulo = txtTitulo.Text;
-            int duracion = Convert.ToInt32(txtDuracion.Text);
-            int año = Convert.ToInt32(txtAño.Text);
-
-
-            if (cmbGenero.SelectedItem.ToString() == "Acción")
+            //string titulo = txtTitulo.Text;
+            //int duracion = Convert.ToInt32(txtDuracion.Text);
+            //int año = Convert.ToInt32(txtAño.Text);
+            if (cmbGenero.SelectedItem != null)
             {
-                FormPeliculaAccion frmpeliaccion = new FormPeliculaAccion();
-                frmpeliaccion.ShowDialog();
-            }
-            else if (cmbGenero.SelectedItem.ToString() == "Comedia")
-            {
-                //pelicula = new PeliculaComedia { Titulo = titulo, Duracion = duracion, Año = año };
+                switch (cmbGenero.SelectedItem.ToString())
+                {
+                    case "Acción":
+                        FormPeliculaAccion frmpeliaccion = new FormPeliculaAccion();
+                        frmpeliaccion.StartPosition = FormStartPosition.CenterScreen;
+                        frmpeliaccion.ShowDialog();
+                        break;
+                    case "Comedia":
+                        FormPeliculaComedia frmpelicomedia = new FormPeliculaComedia();
+                        frmpelicomedia.StartPosition = FormStartPosition.CenterScreen;
+                        frmpelicomedia.ShowDialog();
+                        break;
+                    case "Terror":
+                        FormPeliculaTerror frmpeliterror = new FormPeliculaTerror();
+                        frmpeliterror.StartPosition = FormStartPosition.CenterScreen;
+                        frmpeliterror.ShowDialog();
+                        break;
+                }
             }
             else
             {
-                // En caso de otros géneros o si no se selecciona ninguno, usa la clase base Pelicula
+                MessageBox.Show("Por favor, seleccione un tipo de pelicula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            MessageBox.Show($"Se ha guardado la película:, Género: ");
+            //if (cmbGenero.SelectedItem.ToString() == "Acción")
+            //{
+            //    FormPeliculaAccion frmpeliaccion = new FormPeliculaAccion();
+            //    frmpeliaccion.StartPosition = FormStartPosition.CenterScreen;
+
+            //    frmpeliaccion.ShowDialog();
+
+            //}
+            //else if (cmbGenero.SelectedItem.ToString() == "Comedia")
+            //{
+            //    FormPeliculaComedia frmpelicomedia = new FormPeliculaComedia();
+            //    frmpelicomedia.StartPosition = FormStartPosition.CenterScreen;
+            //    frmpelicomedia.ShowDialog();
+            //    //pelicula = new PeliculaComedia { Titulo = titulo, Duracion = duracion, Año = año };
+            //}
+            //else 
+            //{
+            //    FormPeliculaTerror frmpeliterror = new FormPeliculaTerror();
+            //    frmpeliterror.StartPosition = FormStartPosition.CenterScreen;
+            //    frmpeliterror.ShowDialog();
+            //}
+
+            //MessageBox.Show($"Se ha guardado la película:, Género: ");
 
             //lstPeliculas.Items.Add(pelicula);
 
@@ -56,5 +94,9 @@ namespace Formulario
             //txtAño.Clear();
         }
 
+        private void txtTitulo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

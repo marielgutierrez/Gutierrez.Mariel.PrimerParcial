@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,10 @@ namespace Formulario
 
         }
 
-
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            object origen = sender ?? new object();
+            this.Close();
+        }
     }
 }
