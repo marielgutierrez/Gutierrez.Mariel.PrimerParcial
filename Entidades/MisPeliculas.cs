@@ -8,7 +8,7 @@ namespace Entidades
 {
     public class MisPeliculas
     {
-        private List<Pelicula> peliculas;
+        protected List<Pelicula> peliculas;
 
         public MisPeliculas()
         {

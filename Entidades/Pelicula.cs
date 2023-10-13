@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public abstract class Pelicula
+    public abstract class Pelicula : Object
     {
         protected string titulo;
-        protected int duracion;
         protected int estreno;
         protected string director;
-        protected bool subtitulos;
-
+        protected ENacionalidad nacionalidad;
 
         public string Titulo
         {
@@ -27,34 +25,79 @@ namespace Entidades
             }
         }
         //public string Titulo { get; set; }
-        public int Duracion { get; set; }
         public int Estreno { get; set; }
+        public string Director { get; set; }
+        public ENacionalidad Nacionalidad { get; set; }
 
 
-        /// <summary>
-        /// Propiedades
-        /// </summary>
+        public Pelicula(string titulo, int estreno, string director, ENacionalidad nacionalidad)
+        {
+            this.titulo = titulo;
+            this.estreno = estreno;
+            this.director = director;
+            this.nacionalidad = nacionalidad;
+        }
+        public Pelicula(string titulo, int estreno, string director)
+         : this(titulo, estreno, director, ENacionalidad.EstadoUnidense)
+        {
+            
+        }
         public Pelicula()
         {
-                
+            this.titulo = "SIN TITULO";
+            this.estreno = 0;
+            this.director = "SIN DIRECTOR";
+            this.nacionalidad = ENacionalidad.Desconocida;
         }
 
-        // Constructor que recibe un parámetro menos que el anterior
-        public Pelicula(string titulo, int duracion, int estreno, string director, bool subtitulos)
+        #region METODOS VIRTUAL Y ABSTRACT
+        protected virtual string MostrarInformacion()
         {
-            this.titulo = titulo;
-            this.duracion = duracion;
-            this.estreno = estreno;
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Titulo: "+this.titulo);
+            sb.AppendLine($"Estreno: "+this.estreno);
+            sb.AppendLine($"Director: "+this.director);
+            sb.AppendLine($"Nacionalidad: "+this.nacionalidad);
+
+            return sb.ToString();
         }
-        public Pelicula(string titulo, int duracion, int estreno, string director)
+
+        public abstract void ClasificarPelicula();
+        #endregion
+
+        #region METODOS SOBRECARGADOS
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Reproducir()
         {
-            this.titulo = titulo;
-            this.estreno = estreno;
-            this.duracion = duracion;
+            Random random = new Random();
+
+            // Obtiene un número aleatorio entre 90 y 140
+            int duracion = random.Next(90, 141);
+
+            Console.WriteLine($"Reproduciendo {this.titulo} - Duración: {duracion} minutos");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="subtitulos"></param>
+        public void Reproducir(bool subtitulos)
+        {
+            Reproducir();
+            if (subtitulos)
+            {
+                Console.WriteLine("Subtítulos disponibles");
+            }
+            else
+            {
+                Console.WriteLine("No hay subtitulos disponibles");
+            }
+        }
+        #endregion
 
-        #region OPERADORES
+        #region OPERADORES (falta implicit)
         public static bool operator ==(Pelicula p1, Pelicula p2)
         {
             return p1.titulo == p2.titulo && p1.estreno == p2.estreno;
@@ -65,6 +108,7 @@ namespace Entidades
             return !(p1 == p2);
         }
 
+        //FALTA EL IMPLICIT
         //public static implicit operator()
         //{
 
@@ -90,6 +134,11 @@ namespace Entidades
         }
         #endregion
         public override string ToString()
+        {
+            return this.MostrarInformacion(); 
+        }
+
+        public string Mostrar()
         {
             return $"{Titulo} ({Estreno})"; // Devuelve un formato de cadena representando la película
         }

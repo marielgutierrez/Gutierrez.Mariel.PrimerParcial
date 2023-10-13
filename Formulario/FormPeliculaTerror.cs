@@ -23,9 +23,22 @@ namespace Formulario
 
         }
 
+
+
+
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             base.btnCancelar_Click(sender, e);
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            //if (base.CargarFormulario())
+            //{
+            //    this.alumnito = new Alumno(base.txtNombre.Text, base.txtApellido.Text, int.Parse(base.txtDni.Text),
+            //                        int.Parse(this.txtNotaUno.Text), int.Parse(this.txtNotaDos.Text), int.Parse(this.txtNotaTres.Text));
+            //    this.DialogResult = DialogResult.OK;
+            //}
         }
     }
 }

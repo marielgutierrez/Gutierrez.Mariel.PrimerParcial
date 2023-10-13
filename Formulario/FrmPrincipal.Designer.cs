@@ -103,6 +103,7 @@
             btnModificar.TabIndex = 9;
             btnModificar.Text = "Modificar Pelicula";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnEliminar
             // 

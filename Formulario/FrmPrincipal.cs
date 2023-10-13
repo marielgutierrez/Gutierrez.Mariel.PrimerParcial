@@ -14,18 +14,38 @@ namespace Formulario
 {
     public partial class FrmPrincipal : Form
     {
+        protected MisPeliculas mispeliculas;
+
         public FrmPrincipal()
         {
             InitializeComponent();
             cmbGenero.Items.Add("Acción");
             cmbGenero.Items.Add("Comedia");
             cmbGenero.Items.Add("Terror");
+
+            this.mispeliculas = new MisPeliculas();
         }
 
         public FrmPrincipal(Usuario u) : this()
         {
             lblUsuario.Text = $"Bienvenido {u.nombre} - [{DateTime.Now.ToString("dd/MM/yyyy")}]";
         }
+
+        /// <summary>
+        /// Se encarga de limpiar y recorrer la lista de peliculas 
+        /// para actualizar la info del visor
+        /// </summary>
+        private void ActualizarVisor()
+        {
+            this.lstPeliculas.Items.Clear();
+            foreach (Pelicula pelicula in this.mispeliculas.Peliculas)
+            {
+                //agrega la info de cada peli que estoy recorriendo
+                //titulo - (estreno) ---> (lo q me devuelve el metodo ToString)
+                lstPeliculas.Items.Add(pelicula.Mostrar());
+            }
+        }
+
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
@@ -60,6 +80,7 @@ namespace Formulario
                 MessageBox.Show("Por favor, seleccione un tipo de pelicula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            /*
             //if (cmbGenero.SelectedItem.ToString() == "Acción")
             //{
             //    FormPeliculaAccion frmpeliaccion = new FormPeliculaAccion();
@@ -89,11 +110,67 @@ namespace Formulario
             //txtTitulo.Clear();
             //txtDuracion.Clear();
             //txtAño.Clear();
+            */
         }
 
-        private void txtTitulo_TextChanged(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
+            int indice = this.lstPeliculas.SelectedIndex;
+            if (indice == -1)
+            {
+                MessageBox.Show("Se debe seleccionar una pelicula de la lista");
+            }
+            else if (lstPeliculas == null && indice == -1)
+            {
+                MessageBox.Show("Debe crear una pelicula y agregarla a la lista");
+            }
 
+            Pelicula p = this.mispeliculas.Peliculas[indice];
+
+            //if (p is PeliculaAccion)
+            //{
+            //    FormPeliculaAccion frm = new FormPeliculaAccion(p);
+            //    frm.ShowDialog();
+
+            //    if (frm.DialogResult == DialogResult.OK)
+            //    {
+            //        // pisa el objeto orginal por el obj ya modificado
+            //        this.mispeliculas.Peliculas[indice] = frm.pelicula; ///ver en el form correspondiente
+            //        //que se visualice en el listbox
+            //        this.ActualizarVisor();
+            //    }
+
+            //}
+            //else if (p is PeliculaComedia)
+            //{
+            //    FormPeliculaComedia frm1 = new FormPeliculaComedia(p);
+            //    frm1.ShowDialog();
+
+            //    if (frm1.DialogResult == DialogResult.OK)
+            //    {
+            //        // pisa el objeto orginal por el obj ya modificado
+            //        this.mispeliculas.Peliculas[indice] = frm1.pelicula; ///ver en el form correspondiente
+            //        //que se visualice en el listbox
+            //        this.ActualizarVisor();
+            //    }
+            //}
+            //else if (p is PeliculaTerror)
+            //{
+            //    FormPeliculaTerror frm2 = new FormPeliculaTerror(p);
+            //    frm2.ShowDialog();
+
+            //    if (frm2.DialogResult == DialogResult.OK)
+            //    {
+            //        // pisa el objeto orginal por el obj ya modificado
+            //        this.mispeliculas.Peliculas[indice] = frm2.pelicula; ///ver en el form correspondiente
+            //        //que se visualice en el listbox
+            //        this.ActualizarVisor();
+            //    }
+            //}
+
+
+            //le paso "p" por parametro para que me cargue los datos del producto seleccionado en el nuevo form
+            //se muestra mi formulario
         }
     }
 }

@@ -48,6 +48,10 @@
             // 
             btnCancelar.Click += btnCancelar_Click_1;
             // 
+            // btnAceptar
+            // 
+            btnAceptar.Click += btnAceptar_Click;
+            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(radioButton4);
@@ -175,10 +179,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(696, 450);
+            ClientSize = new Size(696, 383);
             Controls.Add(groupBox2);
             Name = "FormPeliculaAccion";
             Text = "FormPeliculaAccion";
+            Controls.SetChildIndex(btnAceptar, 0);
             Controls.SetChildIndex(btnCancelar, 0);
             Controls.SetChildIndex(groupBox2, 0);
             groupBox2.ResumeLayout(false);

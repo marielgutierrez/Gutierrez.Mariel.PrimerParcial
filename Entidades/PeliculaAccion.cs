@@ -8,20 +8,52 @@ namespace Entidades
 {
     public class PeliculaAccion : Pelicula
     {
-        protected bool efectosEspeciales;
+        protected string actorPrincipal;
+        protected string armas;
 
-        public PeliculaAccion(string titulo,int duracion, int año, string director, bool subtitulos, bool efectosEspeciales)
-            : base(titulo, duracion,año, director, subtitulos)
+
+        public PeliculaAccion(string titulo,int estreno, string director, 
+            ENacionalidad nacionalidad, string actorPrincipal, string armas)
+            : base(titulo, estreno, director, nacionalidad)
         {
-            this.efectosEspeciales = efectosEspeciales;
+            this.armas = armas;
+            this.actorPrincipal = actorPrincipal;
         }
 
-        public PeliculaAccion()
+        public PeliculaAccion(string titulo, int estreno, string director,
+            ENacionalidad nacionalidad, string actorPrincipal)
+            : this(titulo, estreno, director, nacionalidad, actorPrincipal, "Arma de Fuego")
         {
-                
+
         }
 
+        public PeliculaAccion() :base()
+        {
+            this.actorPrincipal = "Desconocido";
+            this.armas = "SIN ARMAS";
+        }
 
+        #region METODOS OVERRIDE
+        protected override string MostrarInformacion()
+        {
+            StringBuilder sb = new StringBuilder();
 
+            sb.Append(base.MostrarInformacion());
+            sb.AppendLine("Actor Principal: "+this.actorPrincipal);
+            sb.AppendLine("Armas: "+this.armas);
+            sb.AppendLine("");
+
+            return sb.ToString();
+        }
+        public override void ClasificarPelicula()
+        {
+            Console.WriteLine("Clasificación: B-15 (para mayores de 15 años)");
+        }
+        #endregion
+
+        public override string ToString()
+        {
+            return this.MostrarInformacion();
+        }
     }
 }

@@ -23,9 +23,22 @@ namespace Formulario
 
         }
 
+        protected bool CargarFormulario()
+        {
+            bool esta = true;
+            foreach (Control item in this.Controls)
+            {
+                if (item is TextBox & item.Text == String.Empty)
+                {
+                    esta = false;
+                    break;
+                }
+            }
+            return esta;
+        }
+
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            object origen = sender ?? new object();
             this.Close();
         }
     }

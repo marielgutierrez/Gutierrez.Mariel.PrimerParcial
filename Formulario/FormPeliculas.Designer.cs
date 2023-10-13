@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label3 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txtTitulo = new TextBox();
             label1 = new Label();
-            button1 = new Button();
+            btnAceptar = new Button();
             groupBox1 = new GroupBox();
             comboBox1 = new ComboBox();
             label7 = new Label();
-            domainUpDown2 = new DomainUpDown();
-            domainUpDown1 = new DomainUpDown();
-            textBox4 = new TextBox();
+            dupEstreno = new DomainUpDown();
+            txtDirector = new TextBox();
             label6 = new Label();
             label5 = new Label();
             radioButton2 = new RadioButton();
@@ -47,15 +45,6 @@
             btnCancelar = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(16, 68);
-            label3.Name = "label3";
-            label3.Size = new Size(58, 15);
-            label3.TabIndex = 12;
-            label3.Text = "Duración:";
             // 
             // label2
             // 
@@ -66,12 +55,13 @@
             label2.TabIndex = 11;
             label2.Text = "Título:";
             // 
-            // textBox1
+            // txtTitulo
             // 
-            textBox1.Location = new Point(123, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(180, 23);
-            textBox1.TabIndex = 9;
+            txtTitulo.BorderStyle = BorderStyle.FixedSingle;
+            txtTitulo.Location = new Point(123, 27);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new Size(180, 23);
+            txtTitulo.TabIndex = 9;
             // 
             // label1
             // 
@@ -83,36 +73,34 @@
             label1.TabIndex = 8;
             label1.Text = "Crear Pelicula";
             // 
-            // button1
+            // btnAceptar
             // 
-            button1.BackColor = Color.LimeGreen;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(212, 352);
-            button1.Name = "button1";
-            button1.Size = new Size(103, 45);
-            button1.TabIndex = 7;
-            button1.Text = "ACEPTAR";
-            button1.UseVisualStyleBackColor = false;
+            btnAceptar.BackColor = Color.LimeGreen;
+            btnAceptar.FlatStyle = FlatStyle.Popup;
+            btnAceptar.ForeColor = SystemColors.ButtonHighlight;
+            btnAceptar.Location = new Point(212, 327);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(103, 45);
+            btnAceptar.TabIndex = 7;
+            btnAceptar.Text = "ACEPTAR";
+            btnAceptar.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(domainUpDown2);
-            groupBox1.Controls.Add(domainUpDown1);
-            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(dupEstreno);
+            groupBox1.Controls.Add(txtDirector);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(radioButton2);
             groupBox1.Controls.Add(radioButton1);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(txtTitulo);
             groupBox1.Controls.Add(label2);
             groupBox1.Location = new Point(12, 71);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(332, 275);
+            groupBox1.Size = new Size(332, 239);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información";
@@ -120,7 +108,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(123, 187);
+            comboBox1.Location = new Point(123, 149);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(180, 23);
             comboBox1.TabIndex = 23;
@@ -128,37 +116,32 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(16, 190);
+            label7.Location = new Point(16, 152);
             label7.Name = "label7";
             label7.Size = new Size(80, 15);
             label7.TabIndex = 22;
             label7.Text = "Nacionalidad:";
             // 
-            // domainUpDown2
+            // dupEstreno
             // 
-            domainUpDown2.Location = new Point(123, 105);
-            domainUpDown2.Name = "domainUpDown2";
-            domainUpDown2.Size = new Size(180, 23);
-            domainUpDown2.TabIndex = 21;
+            dupEstreno.BorderStyle = BorderStyle.FixedSingle;
+            dupEstreno.Location = new Point(123, 67);
+            dupEstreno.Name = "dupEstreno";
+            dupEstreno.Size = new Size(180, 23);
+            dupEstreno.TabIndex = 21;
             // 
-            // domainUpDown1
+            // txtDirector
             // 
-            domainUpDown1.Location = new Point(123, 66);
-            domainUpDown1.Name = "domainUpDown1";
-            domainUpDown1.Size = new Size(180, 23);
-            domainUpDown1.TabIndex = 20;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(123, 147);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(180, 23);
-            textBox4.TabIndex = 19;
+            txtDirector.BorderStyle = BorderStyle.FixedSingle;
+            txtDirector.Location = new Point(123, 109);
+            txtDirector.Name = "txtDirector";
+            txtDirector.Size = new Size(180, 23);
+            txtDirector.TabIndex = 19;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(16, 150);
+            label6.Location = new Point(16, 112);
             label6.Name = "label6";
             label6.Size = new Size(52, 15);
             label6.TabIndex = 18;
@@ -167,16 +150,16 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(17, 107);
+            label5.Location = new Point(17, 69);
             label5.Name = "label5";
-            label5.Size = new Size(32, 15);
+            label5.Size = new Size(49, 15);
             label5.TabIndex = 16;
-            label5.Text = "Año:";
+            label5.Text = "Estreno:";
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(178, 230);
+            radioButton2.Location = new Point(178, 192);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(41, 19);
             radioButton2.TabIndex = 15;
@@ -187,7 +170,7 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(122, 230);
+            radioButton1.Location = new Point(122, 192);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(34, 19);
             radioButton1.TabIndex = 14;
@@ -198,7 +181,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(17, 232);
+            label4.Location = new Point(17, 194);
             label4.Name = "label4";
             label4.Size = new Size(63, 15);
             label4.TabIndex = 13;
@@ -209,7 +192,7 @@
             btnCancelar.BackColor = Color.Red;
             btnCancelar.FlatStyle = FlatStyle.Popup;
             btnCancelar.ForeColor = SystemColors.ButtonHighlight;
-            btnCancelar.Location = new Point(382, 352);
+            btnCancelar.Location = new Point(380, 327);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(103, 45);
             btnCancelar.TabIndex = 14;
@@ -221,11 +204,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(696, 409);
+            ClientSize = new Size(674, 387);
             Controls.Add(btnCancelar);
             Controls.Add(groupBox1);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(btnAceptar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormPeliculas";
             Text = "FormPeliculas";
@@ -237,22 +220,20 @@
         }
 
         #endregion
-        private Label label3;
         private Label label2;
-        private TextBox textBox1;
         private Label label1;
-        private Button button1;
         private GroupBox groupBox1;
         private Label label4;
-        private TextBox textBox4;
         private Label label5;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private DomainUpDown domainUpDown1;
-        private DomainUpDown domainUpDown2;
         private Label label7;
         private Label label6;
-        private ComboBox comboBox1;
         protected Button btnCancelar;
+        protected Button btnAceptar;
+        protected TextBox txtTitulo;
+        protected TextBox txtDirector;
+        protected RadioButton radioButton2;
+        protected RadioButton radioButton1;
+        protected DomainUpDown dupEstreno;
+        protected ComboBox comboBox1;
     }
 }
