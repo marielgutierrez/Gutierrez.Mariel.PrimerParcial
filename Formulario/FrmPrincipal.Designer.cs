@@ -34,7 +34,10 @@
             label1 = new Label();
             lblUsuario = new Label();
             label2 = new Label();
-            button1 = new Button();
+            btnModificar = new Button();
+            btnEliminar = new Button();
+            btnGuardar = new Button();
+            btnImportar = new Button();
             SuspendLayout();
             // 
             // cmbGenero
@@ -59,16 +62,16 @@
             // 
             lstPeliculas.FormattingEnabled = true;
             lstPeliculas.ItemHeight = 15;
-            lstPeliculas.Location = new Point(481, 79);
+            lstPeliculas.Location = new Point(377, 79);
             lstPeliculas.Name = "lstPeliculas";
-            lstPeliculas.Size = new Size(208, 214);
+            lstPeliculas.Size = new Size(297, 214);
             lstPeliculas.TabIndex = 5;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(469, 39);
+            label1.Location = new Point(468, 42);
             label1.Name = "label1";
             label1.Size = new Size(109, 21);
             label1.TabIndex = 6;
@@ -92,21 +95,51 @@
             label2.TabIndex = 8;
             label2.Text = "Seleccione un tipo de pelicula:";
             // 
-            // button1
+            // btnModificar
             // 
-            button1.Location = new Point(602, 376);
-            button1.Name = "button1";
-            button1.Size = new Size(124, 23);
-            button1.TabIndex = 9;
-            button1.Text = "Salir de la App";
-            button1.UseVisualStyleBackColor = true;
+            btnModificar.Location = new Point(377, 309);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(124, 23);
+            btnModificar.TabIndex = 9;
+            btnModificar.Text = "Modificar Pelicula";
+            btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(377, 349);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(124, 23);
+            btnEliminar.TabIndex = 10;
+            btnEliminar.Text = "Eliminar Pelicula";
+            btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(550, 309);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(124, 23);
+            btnGuardar.TabIndex = 11;
+            btnGuardar.Text = "Guardar Peliculas";
+            btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // btnImportar
+            // 
+            btnImportar.Location = new Point(550, 349);
+            btnImportar.Name = "btnImportar";
+            btnImportar.Size = new Size(124, 23);
+            btnImportar.TabIndex = 12;
+            btnImportar.Text = "Importar Peliculas";
+            btnImportar.UseVisualStyleBackColor = true;
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(749, 436);
-            Controls.Add(button1);
+            Controls.Add(btnImportar);
+            Controls.Add(btnGuardar);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnModificar);
             Controls.Add(label2);
             Controls.Add(lblUsuario);
             Controls.Add(label1);
@@ -128,6 +161,9 @@
         private Label label1;
         private Label lblUsuario;
         private Label label2;
-        private Button button1;
+        private Button btnModificar;
+        private Button btnEliminar;
+        private Button btnGuardar;
+        private Button btnImportar;
     }
 }

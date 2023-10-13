@@ -10,7 +10,7 @@ namespace Entidades
     {
         protected string titulo;
         protected int duracion;
-        protected string año;
+        protected int estreno;
         protected string director;
         protected bool subtitulos;
 
@@ -28,7 +28,7 @@ namespace Entidades
         }
         //public string Titulo { get; set; }
         public int Duracion { get; set; }
-        public int Año { get; set; }
+        public int Estreno { get; set; }
 
 
         /// <summary>
@@ -40,23 +40,24 @@ namespace Entidades
         }
 
         // Constructor que recibe un parámetro menos que el anterior
-        public Pelicula(string titulo, int duracion, int año, string director, bool subtitulos)
+        public Pelicula(string titulo, int duracion, int estreno, string director, bool subtitulos)
         {
-            Titulo = titulo;
-            Duracion = duracion;
-            Año = año;
+            this.titulo = titulo;
+            this.duracion = duracion;
+            this.estreno = estreno;
         }
-        public Pelicula(string titulo, int duracion, int año, string director)
+        public Pelicula(string titulo, int duracion, int estreno, string director)
         {
-            Titulo = titulo;
-            Año = año;
-            Duracion = duracion;
+            this.titulo = titulo;
+            this.estreno = estreno;
+            this.duracion = duracion;
         }
 
 
+        #region OPERADORES
         public static bool operator ==(Pelicula p1, Pelicula p2)
         {
-            return p1.titulo == p2.titulo;
+            return p1.titulo == p2.titulo && p1.estreno == p2.estreno;
         }
 
         public static bool operator !=(Pelicula p1, Pelicula p2)
@@ -64,6 +65,14 @@ namespace Entidades
             return !(p1 == p2);
         }
 
+        //public static implicit operator()
+        //{
+
+        //}
+
+        #endregion  
+
+        #region SOBREESCRITURA EQUIVALENCIAS
         public override bool Equals(object? obj)
         {
             bool retorno = false; // es mejor crear una variable antes de devolver dos return
@@ -77,14 +86,12 @@ namespace Entidades
         
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return (this.titulo,this.estreno).GetHashCode();
         }
-
-
-
+        #endregion
         public override string ToString()
         {
-            return $"{Titulo} ({Año})"; // Devuelve un formato de cadena representando la película
+            return $"{Titulo} ({Estreno})"; // Devuelve un formato de cadena representando la película
         }
     }
 }
