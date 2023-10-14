@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
+    [XmlInclude(typeof(Entidades.PeliculaAccion))]
+    [XmlInclude(typeof(Entidades.PeliculaTerror))]
+    [XmlInclude(typeof(Entidades.PeliculaComedia))]
+    [XmlRoot("Peliculas")]
     public class MisPeliculas
     {
         protected List<Pelicula> peliculas;
@@ -15,6 +20,7 @@ namespace Entidades
             this.peliculas = new List<Pelicula>();
         }
 
+        [XmlElement("Pelicula")]
         public List<Pelicula> Peliculas
         {
             get { return this.peliculas; }

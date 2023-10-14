@@ -10,17 +10,20 @@ namespace Entidades
     {
 
         //private string nombre;
-        private string apellido;
-        private int legajo;
+        //private string apellido;
+        //private int legajo;
         //private string correo;
         //private string clave;
-        private EPerfil perfil;
+        //private EPerfil perfil;
 
-        
         public string nombre { get; set; }
         public string correo  { get; set; }
         public string clave { get; set; }
 
+        public int legajo { get; set; }
+        public string apellido { get; set; }
+
+        public string perfil { get; set; }
 
         public override string ToString()
         {

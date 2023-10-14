@@ -37,6 +37,15 @@ namespace Formulario
             return esta;
         }
 
+        protected void AgregarEstrenosDup()
+        {
+            for (int i = 1990; i <= 2023; i++)
+            {
+                this.dupEstreno.Items.Add(i.ToString());
+            }
+
+        }
+
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

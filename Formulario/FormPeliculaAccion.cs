@@ -39,7 +39,7 @@ namespace Formulario
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            this.AgregarEstrenosDup();
+            base.AgregarEstrenosDup();
 
             ENacionalidad[] nacionalidades = (ENacionalidad[])Enum.GetValues(typeof(ENacionalidad));
             this.cmbNacionalidad.DataSource = nacionalidades;
@@ -92,13 +92,13 @@ namespace Formulario
             this.cmbArmas.Items.Add("Escopeta");
         }
 
-        private void AgregarEstrenosDup()
-        {
-            for (int i = 1990; i <= 2023; i++)
-            {
-                this.dupEstreno.Items.Add(i.ToString());
-            }
+        //private void AgregarEstrenosDup()
+        //{
+        //    for (int i = 1990; i <= 2023; i++)
+        //    {
+        //        this.dupEstreno.Items.Add(i.ToString());
+        //    }
 
-        }
+        //}
     }
 }

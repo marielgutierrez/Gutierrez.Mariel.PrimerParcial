@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
+    [XmlInclude(typeof(Entidades.PeliculaAccion))]
+    [XmlInclude(typeof(Entidades.PeliculaTerror))]
+    [XmlInclude(typeof(Entidades.PeliculaComedia))]
     public abstract class Pelicula : Object
     {
         protected string titulo;

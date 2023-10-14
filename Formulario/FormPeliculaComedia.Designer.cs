@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
+            cmbActorComedia = new ComboBox();
+            cmbComedia = new ComboBox();
             label9 = new Label();
             label8 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
@@ -40,10 +40,14 @@
             // 
             btnCancelar.Click += btnCancelar_Click_1;
             // 
+            // btnAceptar
+            // 
+            btnAceptar.Click += btnAceptar_Click;
+            // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(comboBox2);
-            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Controls.Add(cmbActorComedia);
+            groupBox2.Controls.Add(cmbComedia);
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label8);
             groupBox2.Location = new Point(28, 258);
@@ -52,6 +56,22 @@
             groupBox2.TabIndex = 15;
             groupBox2.TabStop = false;
             groupBox2.Text = "Características";
+            // 
+            // cmbActorComedia
+            // 
+            cmbActorComedia.FormattingEnabled = true;
+            cmbActorComedia.Location = new Point(123, 69);
+            cmbActorComedia.Name = "cmbActorComedia";
+            cmbActorComedia.Size = new Size(180, 23);
+            cmbActorComedia.TabIndex = 4;
+            // 
+            // cmbComedia
+            // 
+            cmbComedia.FormattingEnabled = true;
+            cmbComedia.Location = new Point(123, 26);
+            cmbComedia.Name = "cmbComedia";
+            cmbComedia.Size = new Size(180, 23);
+            cmbComedia.TabIndex = 3;
             // 
             // label9
             // 
@@ -70,23 +90,6 @@
             label8.Size = new Size(98, 15);
             label8.TabIndex = 0;
             label8.Text = "Tipo de comedia:";
-            label8.Click += label8_Click;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(123, 26);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(180, 23);
-            comboBox1.TabIndex = 3;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(123, 69);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(180, 23);
-            comboBox2.TabIndex = 4;
             // 
             // FormPeliculaComedia
             // 
@@ -111,7 +114,7 @@
         private GroupBox groupBox2;
         private Label label9;
         private Label label8;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private ComboBox cmbActorComedia;
+        private ComboBox cmbComedia;
     }
 }

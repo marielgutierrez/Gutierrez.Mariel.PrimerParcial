@@ -30,8 +30,8 @@
         {
             groupBox2 = new GroupBox();
             label9 = new Label();
-            comboBox3 = new ComboBox();
-            comboBox2 = new ComboBox();
+            cmbPersonaje = new ComboBox();
+            cmbTerror = new ComboBox();
             label8 = new Label();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -47,8 +47,8 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(comboBox3);
-            groupBox2.Controls.Add(comboBox2);
+            groupBox2.Controls.Add(cmbPersonaje);
+            groupBox2.Controls.Add(cmbTerror);
             groupBox2.Controls.Add(label8);
             groupBox2.Location = new Point(28, 255);
             groupBox2.Name = "groupBox2";
@@ -66,21 +66,21 @@
             label9.TabIndex = 3;
             label9.Text = "Tipo de terror:";
             // 
-            // comboBox3
+            // cmbPersonaje
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(123, 80);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(180, 23);
-            comboBox3.TabIndex = 2;
+            cmbPersonaje.FormattingEnabled = true;
+            cmbPersonaje.Location = new Point(123, 80);
+            cmbPersonaje.Name = "cmbPersonaje";
+            cmbPersonaje.Size = new Size(180, 23);
+            cmbPersonaje.TabIndex = 2;
             // 
-            // comboBox2
+            // cmbTerror
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(123, 32);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(180, 23);
-            comboBox2.TabIndex = 1;
+            cmbTerror.FormattingEnabled = true;
+            cmbTerror.Location = new Point(123, 32);
+            cmbTerror.Name = "cmbTerror";
+            cmbTerror.Size = new Size(180, 23);
+            cmbTerror.TabIndex = 1;
             // 
             // label8
             // 
@@ -111,9 +111,9 @@
         #endregion
 
         private GroupBox groupBox2;
-        private ComboBox comboBox2;
+        private ComboBox cmbTerror;
         private Label label8;
         private Label label9;
-        private ComboBox comboBox3;
+        private ComboBox cmbPersonaje;
     }
 }
