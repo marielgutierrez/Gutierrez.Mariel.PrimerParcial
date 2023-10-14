@@ -113,6 +113,7 @@
             btnEliminar.TabIndex = 10;
             btnEliminar.Text = "Eliminar Pelicula";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnGuardar
             // 
@@ -122,6 +123,7 @@
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar Peliculas";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnImportar
             // 
@@ -131,6 +133,7 @@
             btnImportar.TabIndex = 12;
             btnImportar.Text = "Importar Peliculas";
             btnImportar.UseVisualStyleBackColor = true;
+            btnImportar.Click += btnImportar_Click;
             // 
             // FrmPrincipal
             // 

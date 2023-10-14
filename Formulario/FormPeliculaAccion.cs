@@ -16,16 +16,21 @@ namespace Formulario
     public partial class FormPeliculaAccion : FormPeliculas
     {
         public Entidades.PeliculaAccion peli;
-
         public FormPeliculaAccion(Entidades.PeliculaAccion p) : this()
         {
             this.txtTitulo.Text = p.Titulo;
             this.dupEstreno.Text = p.Estreno.ToString();
             this.txtDirector.Text = p.Director;
+
+            if (cmbNacionalidad.SelectedItem != null)
+            {
+                p.Nacionalidad = (ENacionalidad)cmbNacionalidad.SelectedItem; 
+            }
+
             this.cmbActorPrincipal.SelectedItem = p.ActorPrincipal;
             this.cmbArmas.SelectedItem = p.Armas;
 
-            //this.cmb.Enabled = false;
+            this.dupEstreno.Enabled = false;
         }
 
 
@@ -34,17 +39,13 @@ namespace Formulario
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            for (int i = 1990; i <= 2023; i++)
-            {
-                this.dupEstreno.Items.Add(i.ToString());
-            }
+            this.AgregarEstrenosDup();
 
             ENacionalidad[] nacionalidades = (ENacionalidad[])Enum.GetValues(typeof(ENacionalidad));
             this.cmbNacionalidad.DataSource = nacionalidades;
 
             this.AgregarActoresCmbox();
             this.AgregarArmasCmbox();
-            //btnCancelar.Click += btnCancelar_Click;
         }
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
@@ -91,5 +92,13 @@ namespace Formulario
             this.cmbArmas.Items.Add("Escopeta");
         }
 
+        private void AgregarEstrenosDup()
+        {
+            for (int i = 1990; i <= 2023; i++)
+            {
+                this.dupEstreno.Items.Add(i.ToString());
+            }
+
+        }
     }
 }

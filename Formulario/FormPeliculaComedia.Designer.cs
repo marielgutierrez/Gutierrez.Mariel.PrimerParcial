@@ -31,6 +31,8 @@
             groupBox2 = new GroupBox();
             label9 = new Label();
             label8 = new Label();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
@@ -40,6 +42,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(comboBox2);
+            groupBox2.Controls.Add(comboBox1);
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label8);
             groupBox2.Location = new Point(28, 258);
@@ -54,9 +58,9 @@
             label9.AutoSize = true;
             label9.Location = new Point(17, 72);
             label9.Name = "label9";
-            label9.Size = new Size(100, 15);
+            label9.Size = new Size(88, 15);
             label9.TabIndex = 1;
-            label9.Text = "Escenas graciosas";
+            label9.Text = "Actor Principal:";
             // 
             // label8
             // 
@@ -68,11 +72,27 @@
             label8.Text = "Tipo de comedia:";
             label8.Click += label8_Click;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(123, 26);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(180, 23);
+            comboBox1.TabIndex = 3;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(123, 69);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(180, 23);
+            comboBox2.TabIndex = 4;
+            // 
             // FormPeliculaComedia
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(666, 462);
+            ClientSize = new Size(380, 462);
             Controls.Add(groupBox2);
             Name = "FormPeliculaComedia";
             Text = "FormPelisComedia";
@@ -91,5 +111,7 @@
         private GroupBox groupBox2;
         private Label label9;
         private Label label8;
+        private ComboBox comboBox2;
+        private ComboBox comboBox1;
     }
 }

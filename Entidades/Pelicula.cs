@@ -15,19 +15,27 @@ namespace Entidades
 
         public string Titulo
         {
-            get
-            {
-                return this.titulo;
-            }
-            set
-            {
-                this.titulo = value;
-            }
+            get { return this.titulo; }
+            set { this.titulo = value; }
         }
-        //public string Titulo { get; set; }
-        public int Estreno { get; set; }
-        public string Director { get; set; }
-        public ENacionalidad Nacionalidad { get; set; }
+
+        public int Estreno
+        {
+            get { return this.estreno; }
+            set { this.estreno = value; }
+        }
+
+        public string Director     
+        {
+            get { return this.director; }
+            set { this.director = value; }
+        }
+
+        public ENacionalidad Nacionalidad
+        {
+            get { return this.nacionalidad; }
+            set { this.nacionalidad = value; }
+        }
 
 
         public Pelicula(string titulo, int estreno, string director, ENacionalidad nacionalidad)
@@ -38,7 +46,7 @@ namespace Entidades
             this.nacionalidad = nacionalidad;
         }
         public Pelicula(string titulo, int estreno, string director)
-         : this(titulo, estreno, director, ENacionalidad.EstadoUnidense)
+         : this(titulo, estreno, director, ENacionalidad.Argentina)
         {
             
         }
@@ -55,7 +63,7 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Titulo: "+this.titulo);
-            sb.AppendLine($"Estreno: "+this.estreno);
+            sb.AppendLine($"Estreno: "+this.estreno.ToString());
             sb.AppendLine($"Director: "+this.director);
             sb.AppendLine($"Nacionalidad: "+this.nacionalidad);
 
@@ -140,7 +148,7 @@ namespace Entidades
 
         public string Mostrar()
         {
-            return $"{this.titulo} ({this.estreno})"; // Devuelve un formato de cadena representando la película
+            return $"{this.titulo} ({this.estreno}) - {this.nacionalidad}"; // Devuelve un formato de cadena representando la película
         }
     }
 }

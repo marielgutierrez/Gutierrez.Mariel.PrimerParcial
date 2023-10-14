@@ -17,10 +17,8 @@ namespace Entidades
 
         public List<Pelicula> Peliculas
         {
-            get
-            {
-                return this.peliculas;
-            }
+            get { return this.peliculas; }
+            set { this.peliculas = value; }
         }
 
         /// <summary>
