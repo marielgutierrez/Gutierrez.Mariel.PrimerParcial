@@ -61,6 +61,10 @@ namespace Entidades
 
             return sb.ToString();
         }
+        public override string ToString()
+        {
+            return this.MostrarInformacion(); 
+        }
 
         public abstract void ClasificarPelicula();
         #endregion
@@ -133,14 +137,10 @@ namespace Entidades
             return (this.titulo,this.estreno).GetHashCode();
         }
         #endregion
-        public override string ToString()
-        {
-            return this.MostrarInformacion(); 
-        }
 
         public string Mostrar()
         {
-            return $"{Titulo} ({Estreno})"; // Devuelve un formato de cadena representando la película
+            return $"{this.titulo} ({this.estreno})"; // Devuelve un formato de cadena representando la película
         }
     }
 }

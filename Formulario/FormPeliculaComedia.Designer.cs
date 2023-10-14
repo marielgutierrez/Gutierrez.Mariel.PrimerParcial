@@ -42,9 +42,9 @@
             // 
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label8);
-            groupBox2.Location = new Point(359, 71);
+            groupBox2.Location = new Point(28, 258);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(278, 241);
+            groupBox2.Size = new Size(332, 122);
             groupBox2.TabIndex = 15;
             groupBox2.TabStop = false;
             groupBox2.Text = "Características";
@@ -52,7 +52,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(26, 83);
+            label9.Location = new Point(17, 72);
             label9.Name = "label9";
             label9.Size = new Size(100, 15);
             label9.TabIndex = 1;
@@ -61,7 +61,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(26, 36);
+            label8.Location = new Point(16, 34);
             label8.Name = "label8";
             label8.Size = new Size(98, 15);
             label8.TabIndex = 0;
@@ -72,11 +72,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(666, 405);
+            ClientSize = new Size(666, 462);
             Controls.Add(groupBox2);
             Name = "FormPeliculaComedia";
             Text = "FormPelisComedia";
             Load += FormPelisComedia_Load;
+            Controls.SetChildIndex(btnAceptar, 0);
             Controls.SetChildIndex(btnCancelar, 0);
             Controls.SetChildIndex(groupBox2, 0);
             groupBox2.ResumeLayout(false);

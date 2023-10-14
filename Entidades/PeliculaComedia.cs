@@ -8,8 +8,20 @@ namespace Entidades
 {
     public class PeliculaComedia : Pelicula
     {
-        protected string actorPrincipal;
-        protected string tipoComedia;
+        private string actorPrincipal;
+        private string tipoComedia;
+
+
+        public string ActorPrincipal
+        {
+            get { return this.actorPrincipal; }
+            set { this.actorPrincipal = value; }
+        }
+        public string TipoComedia
+        {
+            get { return this.tipoComedia; }
+            set { this.tipoComedia = value; }
+        }
 
         public PeliculaComedia(string titulo, int estreno, string director, 
             ENacionalidad nacionalidad, string actorPrincipal, string tipoComedia)

@@ -4,9 +4,20 @@ namespace Entidades
 {
     public class PeliculaTerror : Pelicula
     {
-        protected EPersonajes personaje;
-        protected string tipoTerror;
+        private EPersonajes personaje;
+        private string tipoTerror;
 
+        public EPersonajes Personaje
+        {
+            get { return this.personaje; }
+            set { this.personaje = value; }
+        }
+
+        public string TipoTerror
+        {
+            get { return this.tipoTerror; }
+            set { this.tipoTerror = value; }
+        }
 
         public PeliculaTerror(string titulo, int estreno, string director, 
             ENacionalidad nacionalidad, EPersonajes personaje, string tipoTerror)
@@ -49,6 +60,17 @@ namespace Entidades
 
         }
         #endregion
+
+        //public override bool Equals(object? obj)
+        //{
+        //    bool retorno = false; // es mejor crear una variable antes de devolver dos return
+
+        //    if (obj is Pelicula)
+        //    {
+        //        retorno = this == (Pelicula)obj;
+        //    }
+        //    return retorno;
+        //}
 
         public override string ToString()
         {

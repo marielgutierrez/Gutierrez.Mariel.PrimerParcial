@@ -33,15 +33,12 @@
             label1 = new Label();
             btnAceptar = new Button();
             groupBox1 = new GroupBox();
-            comboBox1 = new ComboBox();
+            cmbNacionalidad = new ComboBox();
             label7 = new Label();
             dupEstreno = new DomainUpDown();
             txtDirector = new TextBox();
             label6 = new Label();
             label5 = new Label();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
-            label4 = new Label();
             btnCancelar = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -67,7 +64,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(28, 20);
+            label1.Location = new Point(28, 9);
             label1.Name = "label1";
             label1.Size = new Size(140, 30);
             label1.TabIndex = 8;
@@ -78,7 +75,7 @@
             btnAceptar.BackColor = Color.LimeGreen;
             btnAceptar.FlatStyle = FlatStyle.Popup;
             btnAceptar.ForeColor = SystemColors.ButtonHighlight;
-            btnAceptar.Location = new Point(212, 327);
+            btnAceptar.Location = new Point(45, 399);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(103, 45);
             btnAceptar.TabIndex = 7;
@@ -87,31 +84,28 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(cmbNacionalidad);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(dupEstreno);
             groupBox1.Controls.Add(txtDirector);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(radioButton2);
-            groupBox1.Controls.Add(radioButton1);
-            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(txtTitulo);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(12, 71);
+            groupBox1.Location = new Point(28, 53);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(332, 239);
+            groupBox1.Size = new Size(332, 187);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información";
             // 
-            // comboBox1
+            // cmbNacionalidad
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(123, 149);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(180, 23);
-            comboBox1.TabIndex = 23;
+            cmbNacionalidad.FormattingEnabled = true;
+            cmbNacionalidad.Location = new Point(123, 149);
+            cmbNacionalidad.Name = "cmbNacionalidad";
+            cmbNacionalidad.Size = new Size(180, 23);
+            cmbNacionalidad.TabIndex = 23;
             // 
             // label7
             // 
@@ -156,43 +150,12 @@
             label5.TabIndex = 16;
             label5.Text = "Estreno:";
             // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(178, 192);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(41, 19);
-            radioButton2.TabIndex = 15;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "No";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(122, 192);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(34, 19);
-            radioButton1.TabIndex = 14;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Sí";
-            radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(17, 194);
-            label4.Name = "label4";
-            label4.Size = new Size(63, 15);
-            label4.TabIndex = 13;
-            label4.Text = "Subtítulos:";
-            // 
             // btnCancelar
             // 
             btnCancelar.BackColor = Color.Red;
             btnCancelar.FlatStyle = FlatStyle.Popup;
             btnCancelar.ForeColor = SystemColors.ButtonHighlight;
-            btnCancelar.Location = new Point(380, 327);
+            btnCancelar.Location = new Point(218, 399);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(103, 45);
             btnCancelar.TabIndex = 14;
@@ -204,7 +167,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(674, 387);
+            ClientSize = new Size(393, 456);
             Controls.Add(btnCancelar);
             Controls.Add(groupBox1);
             Controls.Add(label1);
@@ -223,7 +186,6 @@
         private Label label2;
         private Label label1;
         private GroupBox groupBox1;
-        private Label label4;
         private Label label5;
         private Label label7;
         private Label label6;
@@ -231,9 +193,7 @@
         protected Button btnAceptar;
         protected TextBox txtTitulo;
         protected TextBox txtDirector;
-        protected RadioButton radioButton2;
-        protected RadioButton radioButton1;
         protected DomainUpDown dupEstreno;
-        protected ComboBox comboBox1;
+        protected ComboBox cmbNacionalidad;
     }
 }

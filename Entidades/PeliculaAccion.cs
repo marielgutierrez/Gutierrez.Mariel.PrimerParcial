@@ -8,9 +8,21 @@ namespace Entidades
 {
     public class PeliculaAccion : Pelicula
     {
-        protected string actorPrincipal;
-        protected string armas;
+        private string actorPrincipal;
+        private string armas;
 
+
+        public string ActorPrincipal
+        {
+            get { return this.actorPrincipal; }
+            set { this.actorPrincipal = value; }
+        }
+
+        public string Armas
+        {
+            get { return this.armas; }
+            set { this.armas = value; }
+        }
 
         public PeliculaAccion(string titulo,int estreno, string director, 
             ENacionalidad nacionalidad, string actorPrincipal, string armas)

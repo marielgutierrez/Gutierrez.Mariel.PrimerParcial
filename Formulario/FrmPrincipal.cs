@@ -64,6 +64,13 @@ namespace Formulario
                     case "Acción":
                         FormPeliculaAccion frmpeliaccion = new FormPeliculaAccion();
                         frmpeliaccion.ShowDialog();
+
+                        if (frmpeliaccion.DialogResult == DialogResult.OK)
+                        {
+                            mispeliculas += frmpeliaccion.peli;
+                            //que se visualice en el listbox
+                            this.ActualizarVisor();
+                        }
                         break;
                     case "Comedia":
                         FormPeliculaComedia frmpelicomedia = new FormPeliculaComedia();
@@ -127,20 +134,20 @@ namespace Formulario
 
             Pelicula p = this.mispeliculas.Peliculas[indice];
 
-            //if (p is PeliculaAccion)
-            //{
-            //    FormPeliculaAccion frm = new FormPeliculaAccion(p);
-            //    frm.ShowDialog();
+            if (p is PeliculaAccion)
+            {
+                FormPeliculaAccion frm = new FormPeliculaAccion((PeliculaAccion)p);
+                frm.ShowDialog();
 
-            //    if (frm.DialogResult == DialogResult.OK)
-            //    {
-            //        // pisa el objeto orginal por el obj ya modificado
-            //        this.mispeliculas.Peliculas[indice] = frm.pelicula; ///ver en el form correspondiente
-            //        //que se visualice en el listbox
-            //        this.ActualizarVisor();
-            //    }
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    // pisa el objeto orginal por el obj ya modificado
+                    this.mispeliculas.Peliculas[indice] = frm.peli;
+                    //que se visualice en el listbox
+                    this.ActualizarVisor();
+                }
 
-            //}
+            }
             //else if (p is PeliculaComedia)
             //{
             //    FormPeliculaComedia frm1 = new FormPeliculaComedia(p);
@@ -149,7 +156,7 @@ namespace Formulario
             //    if (frm1.DialogResult == DialogResult.OK)
             //    {
             //        // pisa el objeto orginal por el obj ya modificado
-            //        this.mispeliculas.Peliculas[indice] = frm1.pelicula; ///ver en el form correspondiente
+            //        this.mispeliculas.Peliculas[indice] = frm1.peliculaC; ///ver en el form correspondiente
             //        //que se visualice en el listbox
             //        this.ActualizarVisor();
             //    }
@@ -172,5 +179,5 @@ namespace Formulario
             //le paso "p" por parametro para que me cargue los datos del producto seleccionado en el nuevo form
             //se muestra mi formulario
         }
-    }
+        }
 }
