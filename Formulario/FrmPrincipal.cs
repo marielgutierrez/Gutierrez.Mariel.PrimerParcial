@@ -33,16 +33,12 @@ namespace Formulario
             cmbGenero.Items.Add("Acción");
             cmbGenero.Items.Add("Comedia");
             cmbGenero.Items.Add("Terror");
-            this.Text = "Film Creator";
-            Bitmap img = new Bitmap(Application.StartupPath + @"\img\peliculas_fondo.jpg");
+
+            this.Text = "Crea tu pelicula";
+            Bitmap img = new Bitmap(Application.StartupPath + @"\img\pelis_fondito.jpg");
             this.BackgroundImage = img;
 
             this.mispeliculas = new MisPeliculas();
-        }
-
-        public FrmPrincipal(Usuario u) : this()
-        {
-            lblUsuario.Text = $"Bienvenido {u.Nombre} - [{DateTime.Now.ToString("dd/MM/yyyy")}]";
         }
 
         /// <summary>
@@ -54,8 +50,7 @@ namespace Formulario
             this.lstPeliculas.Items.Clear();
             foreach (Pelicula pelicula in this.mispeliculas.Peliculas)
             {
-                //agrega la info de cada peli que estoy recorriendo
-                //titulo - (estreno) ---> (lo q me devuelve el metodo ToString)
+                //titulo - (estreno) ---> (lo q me devuelve el metodo)
                 lstPeliculas.Items.Add(pelicula.Mostrar());
             }
         }
@@ -76,21 +71,7 @@ namespace Formulario
                 MessageBox.Show("Error al importar archivo: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            /*
-            if (File.Exists(FrmPrincipal.rutaConfiguracion))
-            {
-                try
-                {
-                    LeerJson();
-                    ActualizarVisor();
-                }
-                catch (JsonException ex)
-                {
-                    MessageBox.Show(ex.Message, "Error",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            */
+
         }
 
         private void btnCrearPeli_Click(object sender, EventArgs e)
@@ -161,7 +142,6 @@ namespace Formulario
                     {
                         // pisa el objeto orginal por el obj ya modificado
                         this.mispeliculas.Peliculas[indice] = frm.peli;
-                        //que se visualice en el listbox
                         this.ActualizarVisor();
                     }
 
@@ -174,8 +154,7 @@ namespace Formulario
                     if (frm1.DialogResult == DialogResult.OK)
                     {
                         // pisa el objeto orginal por el obj ya modificado
-                        this.mispeliculas.Peliculas[indice] = frm1.peli; ///ver en el form correspondiente
-                        //que se visualice en el listbox
+                        this.mispeliculas.Peliculas[indice] = frm1.peli;
                         this.ActualizarVisor();
                     }
                 }
@@ -187,14 +166,11 @@ namespace Formulario
                     if (frm2.DialogResult == DialogResult.OK)
                     {
                         // pisa el objeto orginal por el obj ya modificado
-                        this.mispeliculas.Peliculas[indice] = frm2.peli; ///ver en el form correspondiente
-                        //que se visualice en el listbox
+                        this.mispeliculas.Peliculas[indice] = frm2.peli;
                         this.ActualizarVisor();
                     }
                 }
             }
-            //le paso "p" por parametro para que me cargue los datos del producto seleccionado en el nuevo form
-            //se muestra mi formulario
         }
 
         private void LeerXml()
@@ -205,20 +181,6 @@ namespace Formulario
 
                 this.mispeliculas.Peliculas = (List<Pelicula>)serializador.Deserialize(reader);
             }
-            /*
-            //if (File.Exists(path + @"\Peliculas.json"))
-            //{
-            //    using (StreamReader lectorJson = new StreamReader(path + @"\Peliculas.json"))
-            //    {
-            //        //string json_str = lectorJson.ReadToEnd();
-            //        //this.mispeliculas.Peliculas = (List<Pelicula>)JsonSerializer.Deserialize(json_str, typeof(List<Pelicula>));
-            //        string json_str = lectorJson.ReadToEnd();
-
-            //        // Asegúrate de que Pelicula tenga un constructor sin parámetros o usa JsonConverter
-            //        this.mispeliculas.Peliculas = JsonSerializer.Deserialize<List<Pelicula>>(json_str);
-            //    }
-            //}
-            */
         }
 
         private void btnImportar_Click(object sender, EventArgs e)
@@ -239,8 +201,6 @@ namespace Formulario
             {
                 MessageBox.Show("Error de entrada/salida: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -259,18 +219,6 @@ namespace Formulario
             {
                 MessageBox.Show("Error de entrada/salida: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            /*
-            //JsonSerializerOptions opciones = new JsonSerializerOptions();
-            //opciones.WriteIndented = true; //da formato JSON
-
-            //string objJson = JsonSerializer.Serialize(this.mispeliculas.Peliculas, opciones);
-
-            //using (StreamWriter sw = new StreamWriter(path + @"\Peliculas.json"))
-            //{
-            //    sw.WriteLine(objJson);
-            //}
-            */
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -306,5 +254,19 @@ namespace Formulario
                 e.Cancel = true; // Cancela el cierre del formulario.
             }
         }
+
+        //private void CrearArchivoUsuario(Usuario u)
+        //{
+        //    string filePath = "usuario.log";
+        //    if (!File.Exists(filePath))
+        //    {
+        //        File.Create(filePath).Close();
+        //    }
+
+        //    using (StreamWriter writer = new StreamWriter(filePath, true))
+        //    {
+        //        writer.WriteLine(u.ToString());
+        //    }
+        //}
     }
 }

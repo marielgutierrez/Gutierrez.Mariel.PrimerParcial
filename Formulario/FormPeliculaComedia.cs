@@ -43,7 +43,7 @@ namespace Formulario
 
             this.AgregarActoresComedia();
             this.AgregarComediaCmbox();
-
+            this.peli = new PeliculaComedia();
         }
 
         private void FormPelisComedia_Load(object sender, EventArgs e)

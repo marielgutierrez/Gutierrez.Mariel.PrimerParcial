@@ -15,11 +15,11 @@ namespace Formulario
             InitializeComponent();
 
         }
-        public FrmLogin(Usuario u):this()
-        {
-            this.usuario = u;
-            this.txtCorreo.Focus();
-        }
+        //public FrmLogin(Usuario u):this()
+        //{
+        //    this.usuario = u;
+        //    this.txtCorreo.Focus();
+        //}
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             this.usuario = this.Verificar();

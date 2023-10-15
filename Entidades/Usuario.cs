@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase que obtiene las caracteristicas del usuario al querer iniciar sesion
+    /// </summary>
     public class Usuario
     {
         private string nombre;
@@ -59,14 +62,9 @@ namespace Entidades
             set { this.perfil = value; }
         }
 
-        public override string ToString()
-        {
-            string fechaHoraActual = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-
-            return $"[{fechaHoraActual}] correo: {this.correo} -" +
-                $" nombre: {this.nombre} - apellido {this.apellido} - legajo {this.legajo} - perfil {this.perfil}";
-        }
-
+        /// <summary>
+        /// Inicializa los atributos de Usuario con valores predeterminados
+        /// </summary>
         public Usuario()
         {
             this.nombre = string.Empty;
@@ -76,12 +74,16 @@ namespace Entidades
             this.perfil = string.Empty;
             this.legajo = 0;
         }
+        /// <summary>
+        /// obtiene la fecha y hora actual en una cadena de texto
+        /// </summary>
+        /// <returns>la fecha y hora actual + informacion del usuario para el .log</returns>
+        public override string ToString()
+        {
+            string fechaHoraActual = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
 
-        //public string FormatearUsuario(Usuario u)
-        //{
-        //    return $"[{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")}]";
-        //}
-
-
+            return $"[{fechaHoraActual}] correo: {this.correo} -" +
+                $" nombre: {this.nombre} - apellido: {this.apellido} - legajo: {this.legajo} - perfil: {this.perfil}";
+        }
     }
 }
