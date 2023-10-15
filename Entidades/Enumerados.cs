@@ -19,11 +19,3 @@ public enum EPersonajes
     Dracula,
     Desconocido
 }
-
-
-public enum EPerfil
-{
-    vendedor,
-    supervisor,
-    administrador
-}

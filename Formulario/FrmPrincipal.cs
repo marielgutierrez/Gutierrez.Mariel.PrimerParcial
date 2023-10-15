@@ -33,13 +33,16 @@ namespace Formulario
             cmbGenero.Items.Add("Acción");
             cmbGenero.Items.Add("Comedia");
             cmbGenero.Items.Add("Terror");
+            this.Text = "Film Creator";
+            Bitmap img = new Bitmap(Application.StartupPath + @"\img\peliculas_fondo.jpg");
+            this.BackgroundImage = img;
 
             this.mispeliculas = new MisPeliculas();
         }
 
         public FrmPrincipal(Usuario u) : this()
         {
-            lblUsuario.Text = $"Bienvenido {u.nombre} - [{DateTime.Now.ToString("dd/MM/yyyy")}]";
+            lblUsuario.Text = $"Bienvenido {u.Nombre} - [{DateTime.Now.ToString("dd/MM/yyyy")}]";
         }
 
         /// <summary>
@@ -236,7 +239,7 @@ namespace Formulario
             {
                 MessageBox.Show("Error de entrada/salida: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
 
         }
 
@@ -256,7 +259,7 @@ namespace Formulario
             {
                 MessageBox.Show("Error de entrada/salida: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
             /*
             //JsonSerializerOptions opciones = new JsonSerializerOptions();
             //opciones.WriteIndented = true; //da formato JSON
@@ -292,6 +295,15 @@ namespace Formulario
                     //que se visualice en el listbox
                     this.ActualizarVisor();
                 }
+            }
+        }
+
+        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que quieres salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // Cancela el cierre del formulario.
             }
         }
     }

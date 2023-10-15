@@ -47,10 +47,6 @@ namespace Formulario
                     //INICIO LA APLICACION
                     Application.Run(frmAplicacion);
                 }
-                else
-                {
-                    MessageBox.Show("Error vale null");
-                }
             }
             catch (Exception ex)
             {

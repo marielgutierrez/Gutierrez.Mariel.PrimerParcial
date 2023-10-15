@@ -152,6 +152,7 @@
             Controls.Add(cmbGenero);
             Name = "FrmPrincipal";
             Text = "FrmPrincipal";
+            FormClosing += FrmPrincipal_FormClosing;
             Load += FrmPrincipal_Load;
             ResumeLayout(false);
             PerformLayout();

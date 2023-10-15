@@ -15,7 +15,7 @@ namespace Formulario
             InitializeComponent();
 
         }
-        public FrmLogin(Usuario u)
+        public FrmLogin(Usuario u):this()
         {
             this.usuario = u;
             this.txtCorreo.Focus();
@@ -45,7 +45,7 @@ namespace Formulario
 
                 foreach (Usuario item in users)
                 {
-                    if (item.correo == this.txtCorreo.Text && item.clave == this.txtClave.Text)
+                    if (item.Correo == this.txtCorreo.Text && item.Clave == this.txtClave.Text)
                     {
                         rta = item;
                         break;
@@ -63,7 +63,12 @@ namespace Formulario
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close(); //agregar algun aviso de si quiere cerrar
+            DialogResult result = MessageBox.Show("¿Estás seguro de que quieres salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close(); // Cierra el formulario.
+            }
         }
 
     }
