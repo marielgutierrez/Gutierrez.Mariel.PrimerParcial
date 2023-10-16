@@ -30,7 +30,7 @@
         {
             label2 = new Label();
             txtTitulo = new TextBox();
-            label1 = new Label();
+            lblNombreForm = new Label();
             btnAceptar = new Button();
             groupBox1 = new GroupBox();
             nupEstreno = new NumericUpDown();
@@ -61,15 +61,15 @@
             txtTitulo.Size = new Size(180, 23);
             txtTitulo.TabIndex = 9;
             // 
-            // label1
+            // lblNombreForm
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(28, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(140, 30);
-            label1.TabIndex = 8;
-            label1.Text = "Crear Pelicula";
+            lblNombreForm.AutoSize = true;
+            lblNombreForm.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNombreForm.Location = new Point(28, 9);
+            lblNombreForm.Name = "lblNombreForm";
+            lblNombreForm.Size = new Size(140, 30);
+            lblNombreForm.TabIndex = 8;
+            lblNombreForm.Text = "Crear Película";
             // 
             // btnAceptar
             // 
@@ -171,7 +171,7 @@
             ClientSize = new Size(393, 456);
             Controls.Add(btnCancelar);
             Controls.Add(groupBox1);
-            Controls.Add(label1);
+            Controls.Add(lblNombreForm);
             Controls.Add(btnAceptar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormPeliculas";
@@ -186,7 +186,6 @@
 
         #endregion
         private Label label2;
-        private Label label1;
         private GroupBox groupBox1;
         private Label label5;
         private Label label7;
@@ -197,5 +196,6 @@
         protected TextBox txtDirector;
         protected ComboBox cmbNacionalidad;
         protected NumericUpDown nupEstreno;
+        protected Label lblNombreForm;
     }
 }

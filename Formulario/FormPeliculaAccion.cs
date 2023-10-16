@@ -18,21 +18,11 @@ namespace Formulario
         public Entidades.PeliculaAccion peli;
         public FormPeliculaAccion(Entidades.PeliculaAccion p) : this()
         {
-            this.txtTitulo.Text = p.Titulo;
-            this.nupEstreno.Value = p.Estreno;
-            this.txtDirector.Text = p.Director;
-
-            if (cmbNacionalidad.SelectedItem != null)
-            {
-                p.Nacionalidad = (ENacionalidad)cmbNacionalidad.SelectedItem;
-            }
+            base.ModificarForm(p);
 
             this.cmbActorPrincipal.SelectedItem = p.ActorPrincipal;
             this.cmbArmas.SelectedItem = p.Armas;
-
-            this.nupEstreno.Enabled = false;
         }
-
 
         public FormPeliculaAccion():base()
         {
@@ -41,11 +31,6 @@ namespace Formulario
             this.AgregarArmasCmbox();
 
             this.peli = new PeliculaAccion();
-        }
-
-        private void btnCancelar_Click_1(object sender, EventArgs e)
-        {
-            base.btnCancelar_Click(sender, e);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -59,9 +44,7 @@ namespace Formulario
             else
             {
                 int valorEstreno = (int)nupEstreno.Value;
-
                 ENacionalidad nacionalidadSeleccionada = (ENacionalidad)base.cmbNacionalidad.SelectedItem;
-
                 string actorSeleccionado = cmbActorPrincipal.SelectedItem?.ToString() ?? "Desconocido";
                 string armaSeleccionada = cmbArmas.SelectedItem?.ToString() ?? "No encontrada";
 
@@ -100,13 +83,5 @@ namespace Formulario
             cmbArmas.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        //private void AgregarEstrenosDup()
-        //{
-        //    for (int i = 1990; i <= 2023; i++)
-        //    {
-        //        this.dupEstreno.Items.Add(i.ToString());
-        //    }
-
-        //}
     }
 }

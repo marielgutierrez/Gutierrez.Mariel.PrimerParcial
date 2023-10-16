@@ -36,9 +36,6 @@
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // btnCancelar
-            // 
-            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // btnAceptar
             // 

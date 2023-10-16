@@ -16,21 +16,10 @@ namespace Formulario
         public Entidades.PeliculaTerror peli;
         public FormPeliculaTerror(Entidades.PeliculaTerror p) : this()
         {
-            this.txtTitulo.Text = p.Titulo;
-            this.nupEstreno.Value = p.Estreno;
-            this.txtDirector.Text = p.Director;
-
-            if (cmbNacionalidad.SelectedItem != null)
-            {
-                p.Nacionalidad = (ENacionalidad)cmbNacionalidad.SelectedItem;
-            }
-
+            base.ModificarForm(p);
             this.cmbPersonaje.SelectedItem = p.Personaje;
             this.cmbTerror.SelectedItem = p.TipoTerror;
-
-            this.nupEstreno.Enabled = false;
         }
-
 
         public FormPeliculaTerror():base()
         {
@@ -42,11 +31,6 @@ namespace Formulario
             this.peli = new PeliculaTerror();
         }
 
-        private void btnCancelar_Click_1(object sender, EventArgs e)
-        {
-            base.btnCancelar_Click(sender, e);
-        }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTitulo.Text) || string.IsNullOrWhiteSpace(txtDirector.Text) || cmbTerror.SelectedItem == null)
@@ -56,12 +40,9 @@ namespace Formulario
             }
             else
             {
-                int estreno = (int)this.nupEstreno.Value; //ACA TIRA ERROR
-
+                int estreno = (int)this.nupEstreno.Value;
                 ENacionalidad nacionalidadSeleccionada = (ENacionalidad)base.cmbNacionalidad.SelectedItem;
-
                 EPersonajes personajeSeleccionado = (EPersonajes)this.cmbPersonaje.SelectedItem;
-
                 string comediaSeleccionada = cmbTerror.SelectedItem?.ToString() ?? "No encontrada";
 
                 if (base.CargarFormulario())
@@ -72,8 +53,6 @@ namespace Formulario
                 }
 
             }
-
-
         }
 
         private void AgregarTerrorCmbox()

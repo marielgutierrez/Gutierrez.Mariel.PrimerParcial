@@ -36,11 +36,11 @@ namespace Formulario
         public FrmPrincipal()
         {
             InitializeComponent();
-            cmbGenero.Items.Add("Acción");
-            cmbGenero.Items.Add("Comedia");
-            cmbGenero.Items.Add("Terror");
+            this.cmbGenero.Items.Add("Acción");
+            this.cmbGenero.Items.Add("Comedia");
+            this.cmbGenero.Items.Add("Terror");
 
-            cmbGenero.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cmbGenero.DropDownStyle = ComboBoxStyle.DropDownList;
 
             this.Text = "Crea tu pelicula";
             Bitmap img = new Bitmap(Application.StartupPath + @"\img\pelis_fondito.jpg");
@@ -58,8 +58,8 @@ namespace Formulario
             this.lstPeliculas.Items.Clear();
             foreach (Pelicula pelicula in this.mispeliculas.Peliculas)
             {
-                //titulo - (estreno) ---> (lo q me devuelve el metodo)
-                lstPeliculas.Items.Add(pelicula.Mostrar());
+                //titulo (estreno) - nacionalidad ---> (lo q me devuelve el metodo)
+                this.lstPeliculas.Items.Add(pelicula.Mostrar());
             }
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Formulario
         {
             try
             {
-                if (File.Exists(rutaConfiguracion))
+                if (File.Exists(FrmPrincipal.rutaConfiguracion))
                 {
                     /* Si existe el archivo lo lee y actualiza la tabla */
                     this.LeerXml();
@@ -97,9 +97,9 @@ namespace Formulario
         /// <param name="e"></param>
         private void btnCrearPeli_Click(object sender, EventArgs e)
         {
-            if (cmbGenero.SelectedItem != null)
+            if (this.cmbGenero.SelectedItem != null)
             {
-                switch (cmbGenero.SelectedItem.ToString())
+                switch (this.cmbGenero.SelectedItem.ToString())
                 {
                     case "Acción":
                         FormPeliculaAccion frmPeliAccion = new FormPeliculaAccion();
@@ -142,6 +142,13 @@ namespace Formulario
 
         }
 
+        /// <summary>
+        /// Permite que el usuario pueda modificar 
+        /// los datos de la pelicula seleccionada
+        /// teniendo en cuenta el tipo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
             int indice = this.lstPeliculas.SelectedIndex;
@@ -197,19 +204,16 @@ namespace Formulario
         {
             try
             {
-                using (XmlTextReader reader = new XmlTextReader(rutaConfiguracion))
+                using (XmlTextReader reader = new XmlTextReader(FrmPrincipal.rutaConfiguracion))
                 {
                     XmlSerializer serializador = new XmlSerializer(typeof(List<Pelicula>));
-
                     this.mispeliculas.Peliculas = (List<Pelicula>)serializador.Deserialize(reader);
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al leer el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void btnImportar_Click(object sender, EventArgs e)
@@ -218,10 +222,10 @@ namespace Formulario
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "Archivos XML (*.xml)|*.xml"; //descripcion del tipo de arch | filtro real * cualquier caracter antes
-                openFileDialog.InitialDirectory = rutaConfiguracion;
+                openFileDialog.InitialDirectory = FrmPrincipal.rutaConfiguracion;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    rutaConfiguracion = openFileDialog.FileName;
+                    FrmPrincipal.rutaConfiguracion = openFileDialog.FileName;
                     this.LeerXml();
                     this.ActualizarVisor();
                 }
@@ -236,7 +240,7 @@ namespace Formulario
         {
             try
             {
-                using (XmlTextWriter writer = new XmlTextWriter(rutaConfiguracion, Encoding.UTF8))
+                using (XmlTextWriter writer = new XmlTextWriter(FrmPrincipal.rutaConfiguracion, Encoding.UTF8))
                 {
                     XmlSerializer serializador = new XmlSerializer(typeof(List<Pelicula>));
                     serializador.Serialize(writer, this.mispeliculas.Peliculas);
@@ -266,10 +270,10 @@ namespace Formulario
                     Pelicula p = this.mispeliculas.Peliculas[indice];
 
                     // elimino la pelicula seleccionada de la lista
-                    mispeliculas -= p;
+                    this.mispeliculas -= p;
 
-                    MessageBox.Show($"Se eliminó {p.Titulo} ({p.Estreno})", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //que se visualice en el listbox
+                    MessageBox.Show($"Se eliminó: {p.Titulo} ({p.Estreno})", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //ya no se visualiza en el listbox
                     this.ActualizarVisor();
                 }
             }
@@ -280,7 +284,7 @@ namespace Formulario
             DialogResult result = MessageBox.Show("¿Estás seguro de que quieres salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
-                e.Cancel = true; // Cancela el cierre del formulario.
+                e.Cancel = true; //cancela el cierre del formulario.
             }
         }
 

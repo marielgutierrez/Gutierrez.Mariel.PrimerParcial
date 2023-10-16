@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,6 @@ namespace Formulario
 
             ENacionalidad[] nacionalidades = (ENacionalidad[])Enum.GetValues(typeof(ENacionalidad));
             this.cmbNacionalidad.DataSource = nacionalidades;
-
         }
 
         private void FormPeliculas_Load(object sender, EventArgs e)
@@ -45,14 +45,29 @@ namespace Formulario
 
         protected void AgregarEstrenosDup()
         {
-            nupEstreno.Minimum = 1990;
-            nupEstreno.Maximum = 2023;
-
+            this.nupEstreno.Minimum = 1990;
+            this.nupEstreno.Maximum = 2023;
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        protected void ModificarForm(Pelicula p)
+        {
+            this.lblNombreForm.Text = "Modificar Película";
+            this.txtTitulo.Text = p.Titulo;
+            this.nupEstreno.Value = p.Estreno;
+            this.txtDirector.Text = p.Director;
+
+            if (this.cmbNacionalidad.SelectedItem != null)
+            {
+                p.Nacionalidad = (ENacionalidad)cmbNacionalidad.SelectedItem;
+            }
+
+            this.nupEstreno.Enabled = false;
+        }
+
     }
 }
