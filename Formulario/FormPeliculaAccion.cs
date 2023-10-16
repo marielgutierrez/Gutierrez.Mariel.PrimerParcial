@@ -34,16 +34,9 @@ namespace Formulario
         }
 
 
-        public FormPeliculaAccion()
+        public FormPeliculaAccion():base()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
-
-            base.AgregarEstrenosDup();
-
-            ENacionalidad[] nacionalidades = (ENacionalidad[])Enum.GetValues(typeof(ENacionalidad));
-            this.cmbNacionalidad.DataSource = nacionalidades;
-
             this.AgregarActoresCmbox();
             this.AgregarArmasCmbox();
 
@@ -57,18 +50,27 @@ namespace Formulario
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            int valorEstreno = (int)nupEstreno.Value;
-
-            ENacionalidad nacionalidadSeleccionada = (ENacionalidad)base.cmbNacionalidad.SelectedItem;
-
-            string actorSeleccionado = cmbActorPrincipal.SelectedItem?.ToString() ?? "Desconocido";
-            string armaSeleccionada = cmbArmas.SelectedItem?.ToString() ?? "No encontrada";
-
-            if (base.CargarFormulario())
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text) || string.IsNullOrWhiteSpace(txtDirector.Text) ||
+                cmbActorPrincipal.SelectedItem == null || cmbArmas.SelectedItem == null)
             {
-                this.peli = new PeliculaAccion(base.txtTitulo.Text, valorEstreno, base.txtDirector.Text,
-                    nacionalidadSeleccionada, actorSeleccionado, armaSeleccionada);
-                this.DialogResult = DialogResult.OK;
+                //muestra un mensaje de error si los campos no están completos
+                MessageBox.Show("Por favor, complete todos los campos requeridos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int valorEstreno = (int)nupEstreno.Value;
+
+                ENacionalidad nacionalidadSeleccionada = (ENacionalidad)base.cmbNacionalidad.SelectedItem;
+
+                string actorSeleccionado = cmbActorPrincipal.SelectedItem?.ToString() ?? "Desconocido";
+                string armaSeleccionada = cmbArmas.SelectedItem?.ToString() ?? "No encontrada";
+
+                if (base.CargarFormulario())
+                {
+                    this.peli = new PeliculaAccion(base.txtTitulo.Text, valorEstreno, base.txtDirector.Text,
+                        nacionalidadSeleccionada, actorSeleccionado, armaSeleccionada);
+                    this.DialogResult = DialogResult.OK;
+                }
             }
         }
 

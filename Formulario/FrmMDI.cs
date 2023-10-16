@@ -24,7 +24,14 @@ namespace Formulario
         }
         public FrmMDI(Usuario u) : this()
         {
-            lblUsuario.Text = $"Bienvenido/a {u.Nombre} - [{DateTime.Now.ToString("dd/MM/yyyy")}]";
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Bienvenido/a {u.Nombre}");
+            sb.AppendLine($"Fecha de registro: {DateTime.Now.ToString("dd/MM/yyyy")}");
+            sb.ToString();
+
+            lblUsuario.Text = sb.ToString();
+            //lblUsuario.Text = $"Bienvenido/a {u.Nombre} - [{DateTime.Now.ToString("dd/MM/yyyy")}]";
 
             this.CrearArchivoUsuario(u);
 

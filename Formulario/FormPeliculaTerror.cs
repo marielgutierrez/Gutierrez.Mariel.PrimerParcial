@@ -32,15 +32,9 @@ namespace Formulario
         }
 
 
-        public FormPeliculaTerror()
+        public FormPeliculaTerror():base()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
-            base.AgregarEstrenosDup();
-
-            ENacionalidad[] nacionalidades = (ENacionalidad[])Enum.GetValues(typeof(ENacionalidad));
-            this.cmbNacionalidad.DataSource = nacionalidades;
-
             EPersonajes[] personajes = (EPersonajes[])Enum.GetValues(typeof(EPersonajes));
             this.cmbPersonaje.DataSource = personajes;
 
@@ -55,20 +49,31 @@ namespace Formulario
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            int estreno = (int)this.nupEstreno.Value; //ACA TIRA ERROR
-
-            ENacionalidad nacionalidadSeleccionada = (ENacionalidad)base.cmbNacionalidad.SelectedItem;
-
-            EPersonajes personajeSeleccionado = (EPersonajes)this.cmbPersonaje.SelectedItem;
-
-            string comediaSeleccionada = cmbTerror.SelectedItem?.ToString() ?? "No encontrada";
-
-            if (base.CargarFormulario())
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text) || string.IsNullOrWhiteSpace(txtDirector.Text) || cmbTerror.SelectedItem == null)
             {
-                this.peli = new PeliculaTerror(base.txtTitulo.Text, estreno, base.txtDirector.Text,
-                    nacionalidadSeleccionada, personajeSeleccionado, comediaSeleccionada);
-                this.DialogResult = DialogResult.OK;
+                //muestra un mensaje de error si los campos no están completos
+                MessageBox.Show("Por favor, complete todos los campos requeridos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                int estreno = (int)this.nupEstreno.Value; //ACA TIRA ERROR
+
+                ENacionalidad nacionalidadSeleccionada = (ENacionalidad)base.cmbNacionalidad.SelectedItem;
+
+                EPersonajes personajeSeleccionado = (EPersonajes)this.cmbPersonaje.SelectedItem;
+
+                string comediaSeleccionada = cmbTerror.SelectedItem?.ToString() ?? "No encontrada";
+
+                if (base.CargarFormulario())
+                {
+                    this.peli = new PeliculaTerror(base.txtTitulo.Text, estreno, base.txtDirector.Text,
+                        nacionalidadSeleccionada, personajeSeleccionado, comediaSeleccionada);
+                    this.DialogResult = DialogResult.OK;
+                }
+
+            }
+
+
         }
 
         private void AgregarTerrorCmbox()

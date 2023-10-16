@@ -149,7 +149,7 @@
             btnOrdenarTituloA.Name = "btnOrdenarTituloA";
             btnOrdenarTituloA.Size = new Size(85, 39);
             btnOrdenarTituloA.TabIndex = 14;
-            btnOrdenarTituloA.Text = "Ordenar de A-Z";
+            btnOrdenarTituloA.Text = "Ordenar de  A-Z";
             btnOrdenarTituloA.UseVisualStyleBackColor = true;
             btnOrdenarTituloA.Click += btnOrdenarTituloA_Click;
             // 

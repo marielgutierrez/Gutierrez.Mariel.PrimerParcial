@@ -34,7 +34,9 @@
             usuariosToolStripMenuItem = new ToolStripMenuItem();
             verUsuariosToolStripMenuItem = new ToolStripMenuItem();
             lblUsuario = new Label();
+            pictureBox1 = new PictureBox();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -42,7 +44,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { peliculasToolStripMenuItem, usuariosToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1007, 24);
+            menuStrip1.Size = new Size(1269, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -77,18 +79,29 @@
             // lblUsuario
             // 
             lblUsuario.BackColor = Color.Transparent;
-            lblUsuario.Font = new Font("Berlin Sans FB", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblUsuario.Location = new Point(498, 24);
+            lblUsuario.Font = new Font("Berlin Sans FB", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblUsuario.Location = new Point(871, 24);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(442, 30);
+            lblUsuario.Size = new Size(300, 92);
             lblUsuario.TabIndex = 3;
             lblUsuario.Text = "label1";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.user;
+            pictureBox1.Location = new Point(1168, 24);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(101, 92);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
             // 
             // FrmMDI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1007, 450);
+            ClientSize = new Size(1269, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(lblUsuario);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
@@ -103,6 +116,7 @@
             Resize += FrmMDI_Resize;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -115,5 +129,6 @@
         private ToolStripMenuItem usuariosToolStripMenuItem;
         private ToolStripMenuItem verUsuariosToolStripMenuItem;
         private Label lblUsuario;
+        private PictureBox pictureBox1;
     }
 }

@@ -209,7 +209,7 @@ namespace Formulario
             {
                 MessageBox.Show("Error al leer el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void btnImportar_Click(object sender, EventArgs e)

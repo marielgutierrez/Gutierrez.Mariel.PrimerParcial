@@ -32,15 +32,9 @@ namespace Formulario
         }
 
 
-        public FormPeliculaComedia()
+        public FormPeliculaComedia():base()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
-            base.AgregarEstrenosDup();
-
-            ENacionalidad[] nacionalidades = (ENacionalidad[])Enum.GetValues(typeof(ENacionalidad));
-            this.cmbNacionalidad.DataSource = nacionalidades;
-
             this.AgregarActoresComedia();
             this.AgregarComediaCmbox();
             this.peli = new PeliculaComedia();
@@ -60,18 +54,28 @@ namespace Formulario
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            int estreno = (int)this.nupEstreno.Value;
-
-            ENacionalidad nacionalidadSeleccionada = (ENacionalidad)base.cmbNacionalidad.SelectedItem;
-
-            string actorSeleccionado = cmbActorComedia.SelectedItem?.ToString() ?? "Desconocido";
-            string comediaSeleccionada = cmbComedia.SelectedItem?.ToString() ?? "No encontrada";
-
-            if (base.CargarFormulario())
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text) || string.IsNullOrWhiteSpace(txtDirector.Text) ||
+                cmbActorComedia.SelectedItem == null || cmbComedia.SelectedItem == null)
             {
-                this.peli = new PeliculaComedia(base.txtTitulo.Text, estreno, base.txtDirector.Text,
-                    nacionalidadSeleccionada, actorSeleccionado, comediaSeleccionada);
-                this.DialogResult = DialogResult.OK;
+                //muestra un mensaje de error si los campos no están completos
+                MessageBox.Show("Por favor, complete todos los campos requeridos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int estreno = (int)this.nupEstreno.Value;
+
+                ENacionalidad nacionalidadSeleccionada = (ENacionalidad)base.cmbNacionalidad.SelectedItem;
+
+                string actorSeleccionado = cmbActorComedia.SelectedItem?.ToString() ?? "Desconocido";
+                string comediaSeleccionada = cmbComedia.SelectedItem?.ToString() ?? "No encontrada";
+
+                if (base.CargarFormulario())
+                {
+                    this.peli = new PeliculaComedia(base.txtTitulo.Text, estreno, base.txtDirector.Text,
+                        nacionalidadSeleccionada, actorSeleccionado, comediaSeleccionada);
+                    this.DialogResult = DialogResult.OK;
+                }
+
             }
         }
 

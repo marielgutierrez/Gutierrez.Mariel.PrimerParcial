@@ -16,6 +16,12 @@ namespace Formulario
         public FormPeliculas()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.AgregarEstrenosDup();
+
+            ENacionalidad[] nacionalidades = (ENacionalidad[])Enum.GetValues(typeof(ENacionalidad));
+            this.cmbNacionalidad.DataSource = nacionalidades;
+
         }
 
         private void FormPeliculas_Load(object sender, EventArgs e)
