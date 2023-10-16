@@ -15,6 +15,9 @@ using System.Xml;
 
 namespace Formulario
 {
+    /// <summary>
+    /// Formulario que maneja las opciones del CRUD
+    /// </summary>
     public partial class FrmPrincipal : Form
     {
         protected MisPeliculas mispeliculas;
@@ -27,6 +30,9 @@ namespace Formulario
             FrmPrincipal.rutaConfiguracion = FrmPrincipal.path + @"\Peliculas.xml";
         }
 
+        /// <summary>
+        /// Inicializa todos los elementos del form
+        /// </summary>
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -54,7 +60,12 @@ namespace Formulario
                 lstPeliculas.Items.Add(pelicula.Mostrar());
             }
         }
-
+        /// <summary>
+        /// Se encarga de deserializar el archivo si existe 
+        /// y mostrar el contenido en el visualizador
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             try
@@ -74,6 +85,14 @@ namespace Formulario
 
         }
 
+        /// <summary>
+        /// Cuando el usuario hace click en el boton Crear, 
+        /// se muestra el formulario correspondiente 
+        /// al tipo de pelicula que se selecciono y 
+        /// se agrega la pelicula de dicho tipo a la lista de peliculas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCrearPeli_Click(object sender, EventArgs e)
         {
             if (cmbGenero.SelectedItem != null)
@@ -255,18 +274,24 @@ namespace Formulario
             }
         }
 
-        //private void CrearArchivoUsuario(Usuario u)
-        //{
-        //    string filePath = "usuario.log";
-        //    if (!File.Exists(filePath))
-        //    {
-        //        File.Create(filePath).Close();
-        //    }
+        private void btnOrdenarTituloA_Click(object sender, EventArgs e)
+        {
+            this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorTituloAscendente);
+        }
 
-        //    using (StreamWriter writer = new StreamWriter(filePath, true))
-        //    {
-        //        writer.WriteLine(u.ToString());
-        //    }
-        //}
+        private void btnOrdenarTituloD_Click(object sender, EventArgs e)
+        {
+            this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorTituloDescendente);
+        }
+
+        private void btnOrdenarEstrenoA_Click(object sender, EventArgs e)
+        {
+            this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorEstrenoAscendente);
+        }
+
+        private void btnOrdenarEstrenoD_Click(object sender, EventArgs e)
+        {
+            this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorEstrenoDescendente);
+        }
     }
 }

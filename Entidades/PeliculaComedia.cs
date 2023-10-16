@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase derivada que maneja atributos propios y de la base
+    /// </summary>
     public class PeliculaComedia : Pelicula
     {
         private string actorPrincipal;
@@ -23,6 +26,15 @@ namespace Entidades
             set { this.tipoComedia = value; }
         }
 
+        /// <summary>
+        /// Inicializa los atributos con los valores recibidos por parametro
+        /// </summary>
+        /// <param name="titulo"> titulo de la pelicula</param>
+        /// <param name="estreno"> estreno (año) de la pelicula</param>
+        /// <param name="director"> director de la pelicula</param>
+        /// <param name="nacionalidad"> origen de la pelicula</param>
+        /// <param name="actorPrincipal"> actor principal de la pelicula</param>
+        /// <param name="tipoComedia"> tipo de comedia de la pelicula</param>
         public PeliculaComedia(string titulo, int estreno, string director, 
             ENacionalidad nacionalidad, string actorPrincipal, string tipoComedia)
             : base(titulo, estreno, director, nacionalidad)
@@ -37,14 +49,16 @@ namespace Entidades
         {
 
         }
-
+        /// <summary>
+        /// Inicializa los atributos con valores predeterminados
+        /// </summary>
         public PeliculaComedia() : base()
         {
             this.actorPrincipal = "Desconocido";
             this.tipoComedia = "No encontrado";
         }
 
-        #region METODOS OVERRIDE (TERMINAR EL MOSTRAR)
+        #region METODOS OVERRIDE
         protected override string MostrarInformacion()
         {
             StringBuilder sb = new StringBuilder();
@@ -62,6 +76,16 @@ namespace Entidades
             Console.WriteLine("Clasificación: A (para todo público)");
         }
         #endregion
+
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
         public override string ToString()
         {

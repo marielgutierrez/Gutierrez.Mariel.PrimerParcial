@@ -46,6 +46,8 @@ namespace Formulario
 
             this.AgregarActoresCmbox();
             this.AgregarArmasCmbox();
+
+            this.peli = new PeliculaAccion();
         }
 
         private void btnCancelar_Click_1(object sender, EventArgs e)

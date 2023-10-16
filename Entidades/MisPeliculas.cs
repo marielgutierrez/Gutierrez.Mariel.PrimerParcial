@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase que contiene la colección genérica de peliculas
+    /// </summary>
     [XmlInclude(typeof(Entidades.PeliculaAccion))]
     [XmlInclude(typeof(Entidades.PeliculaTerror))]
     [XmlInclude(typeof(Entidades.PeliculaComedia))]
@@ -31,8 +34,8 @@ namespace Entidades
         /// comparacion, recorre la lista de peliculas 
         /// en caso de que otra pelicula "p" sea igual a alguna de las peliculas en la lista
         /// </summary>
-        /// <param name="p"></param>
-        /// <param name="mp"></param>
+        /// <param name="p"> pelicula creada por el usuario</param>
+        /// <param name="mp"> clase que contiene la lista de peliculas</param>
         /// <returns> retorno (true o false)</returns>
         public static bool operator ==(Pelicula p, MisPeliculas mp)
         {
@@ -48,7 +51,12 @@ namespace Entidades
             return retorno;
 
         }
-
+        /// <summary>
+        /// niega la comparacion del ==
+        /// </summary>
+        /// <param name="p">pelicula creada por el usuario</param>
+        /// <param name="mp"> clase que contiene la lista de peliculas</param>
+        /// <returns></returns>
         public static bool operator !=(Pelicula p, MisPeliculas mp)
         {
             return !(p == mp);
@@ -90,6 +98,66 @@ namespace Entidades
 
             return mispelis;
         }
+
+        public static int OrdenarPorTituloAscendente(Pelicula p1, Pelicula p2)
+        {
+            return string.Compare(p1.Titulo, p2.Titulo, StringComparison.OrdinalIgnoreCase);
+        }
+
+        public static int OrdenarPorTituloDescendente(Pelicula p1, Pelicula p2)
+        {
+            return string.Compare(p2.Titulo, p1.Titulo, StringComparison.OrdinalIgnoreCase);
+        }
+
+        public static int OrdenarPorEstrenoAscendente(Pelicula p1, Pelicula p2)
+        {
+            if (p1.Estreno < p2.Estreno)
+            {
+                return -1;
+            }
+            else if (p1.Estreno > p2.Estreno)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public static int OrdenarPorEstrenoDescendente(Pelicula p1, Pelicula p2)
+        {
+            if (p1.Estreno < p2.Estreno)
+            {
+                return 1;
+            }
+            else if (p1.Estreno > p2.Estreno)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+
+        //public override bool Equals(object obj)
+        //{
+
+        //    if (obj == null || !(obj is MisPeliculas))
+        //    {
+        //        return false;
+        //    }
+
+        //    MisPeliculas otraMisPeliculas = (MisPeliculas)obj;
+        //    return true;
+        //}
+
+        //public override int GetHashCode()
+        //{
+        //    return base.GetHashCode();
+        //}
 
     }
 }

@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase base que maneja los atributos principales de una pelicula
+    /// </summary>
     [XmlInclude(typeof(Entidades.PeliculaAccion))]
     [XmlInclude(typeof(Entidades.PeliculaTerror))]
     [XmlInclude(typeof(Entidades.PeliculaComedia))]
@@ -41,7 +44,13 @@ namespace Entidades
             set { this.nacionalidad = value; }
         }
 
-
+        /// <summary>
+        /// inicializa los atributos con los valores traidos por parametro
+        /// </summary>
+        /// <param name="titulo"> titulo de la pelicula</param>
+        /// <param name="estreno"> año creado la pelicula</param>
+        /// <param name="director"> director de la pelicula </param>
+        /// <param name="nacionalidad"> origen de la pelicula</param>
         public Pelicula(string titulo, int estreno, string director, ENacionalidad nacionalidad)
         {
             this.titulo = titulo;
@@ -54,6 +63,9 @@ namespace Entidades
         {
             
         }
+        /// <summary>
+        /// inicializa los atributos con valores predeterminados
+        /// </summary>
         public Pelicula()
         {
             this.titulo = "SIN TITULO";
@@ -83,22 +95,22 @@ namespace Entidades
 
         #region METODOS SOBRECARGADOS
         /// <summary>
-        /// 
+        /// Muestra el titulo y una duracion random de la pelicula
         /// </summary>
         public void Reproducir()
         {
             Random random = new Random();
 
-            // Obtiene un número aleatorio entre 90 y 140
             int duracion = random.Next(90, 141);
 
             Console.WriteLine($"Reproduciendo {this.titulo} - Duración: {duracion} minutos");
         }
 
         /// <summary>
-        /// 
+        /// utiliza el metodo Reproducir() y
+        /// ademas se muestra si contiene subtitulos o no 
         /// </summary>
-        /// <param name="subtitulos"></param>
+        /// <param name="subtitulos"> puede ser true o false </param>
         public void Reproducir(bool subtitulos)
         {
             Reproducir();
@@ -124,11 +136,11 @@ namespace Entidades
             return !(p1 == p2);
         }
 
-        //FALTA EL IMPLICIT
-        //public static implicit operator()
-        //{
 
-        //}
+        public static implicit operator int(Pelicula pelicula)
+        {
+            return pelicula.estreno;
+        }
 
         #endregion  
 
@@ -150,9 +162,16 @@ namespace Entidades
         }
         #endregion
 
+        /// <summary>
+        /// se encargar de mostrar la info de la pelicula
+        /// </summary>
+        /// <returns>un formato de cadena representando la película</returns>
         public string Mostrar()
         {
-            return $"{this.titulo} ({this.estreno}) - {this.nacionalidad}"; // Devuelve un formato de cadena representando la película
+            return $"{this.titulo} ({this.estreno}) - {this.nacionalidad}";
         }
+
+       
+
     }
 }

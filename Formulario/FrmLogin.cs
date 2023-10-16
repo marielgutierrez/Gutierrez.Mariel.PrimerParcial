@@ -13,13 +13,10 @@ namespace Formulario
         public FrmLogin()
         {
             InitializeComponent();
+            this.usuario = new Usuario();
 
         }
-        //public FrmLogin(Usuario u):this()
-        //{
-        //    this.usuario = u;
-        //    this.txtCorreo.Focus();
-        //}
+        
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             this.usuario = this.Verificar();
@@ -67,7 +64,7 @@ namespace Formulario
             if (result == DialogResult.Yes)
             {
                 this.DialogResult = DialogResult.Cancel;
-                this.Close(); // Cierra el formulario.
+                this.Close(); //Cierra el formulario.
             }
         }
 

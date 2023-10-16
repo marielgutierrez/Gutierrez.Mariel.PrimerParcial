@@ -45,6 +45,7 @@ namespace Formulario
             this.cmbPersonaje.DataSource = personajes;
 
             this.AgregarTerrorCmbox();
+            this.peli = new PeliculaTerror();
         }
 
         private void btnCancelar_Click_1(object sender, EventArgs e)

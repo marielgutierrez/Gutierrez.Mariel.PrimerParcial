@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase derivada que maneja atributos propios y los de la base
+    /// </summary>
     public class PeliculaAccion : Pelicula
     {
         private string actorPrincipal;
@@ -62,6 +65,16 @@ namespace Entidades
             Console.WriteLine("Clasificación: B-15 (para mayores de 15 años)");
         }
         #endregion
+
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
         public override string ToString()
         {
