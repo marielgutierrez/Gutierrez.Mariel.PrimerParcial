@@ -1,10 +1,11 @@
 ﻿public enum ENacionalidad
 {
-    EstadoUnidense,
+    Estadounidense,
     Argentina,
     Coreana,
     Japonesa,
     Mexicana,
+    Italiana,
     Desconocida
 
 }

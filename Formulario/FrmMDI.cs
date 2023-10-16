@@ -14,6 +14,7 @@ namespace Formulario
     public partial class FrmMDI : Form
     {
         private FrmPrincipal? form1;
+        private FrmUsuarios? form2;
         public FrmMDI()
         {
             InitializeComponent();
@@ -31,26 +32,24 @@ namespace Formulario
 
         private void misPeliculasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (form1 == null)
+            if (this.form1 == null)
             {
-                form1 = new FrmPrincipal();
-                form1.MdiParent = this;
-                form1.FormClosed += new FormClosedEventHandler(CerrarForm);
-                form1.StartPosition = FormStartPosition.CenterScreen;
-                form1.Show();
+                this.form1 = new FrmPrincipal();
+                this.form1.MdiParent = this;
+                this.form1.FormClosed += new FormClosedEventHandler(CerrarForm1);
+                this.form1.StartPosition = FormStartPosition.CenterScreen;
+                this.form1.Show();
             }
             else
             {
-                form1.Activate();
+                this.form1.Activate();
             }
-
-
         }
 
-        void CerrarForm(object sender, FormClosedEventArgs e)
+        void CerrarForm1(object sender, FormClosedEventArgs e)
         {
-            sender = sender ?? this;
-            form1 = null;
+            //sender = sender ?? this;
+            this.form1 = null;
         }
 
         private void EstablecerImagenFondo()
@@ -81,6 +80,41 @@ namespace Formulario
             {
                 writer.WriteLine(u.ToString());
             }
+        }
+        /// <summary>
+        /// Posibilidad de cancelar el cierre de la aplicación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmMDI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que quiere salir de la aplicación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.form2 == null)
+            {
+                this.form2 = new FrmUsuarios();
+                this.form2.MdiParent = this;
+                this.form2.FormClosed += new FormClosedEventHandler(CerrarForm2);
+                this.form2.StartPosition = FormStartPosition.CenterScreen;
+                this.form2.Show();
+            }
+            else
+            {
+                this.form2.Activate();
+            }
+
+        }
+        void CerrarForm2(object sender, FormClosedEventArgs e)
+        {
+            //sender = sender ?? this;
+            this.form2 = null;
         }
     }
 }

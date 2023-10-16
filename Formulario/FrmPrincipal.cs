@@ -70,7 +70,7 @@ namespace Formulario
         {
             try
             {
-                if (File.Exists(path + @"\Peliculas.xml"))
+                if (File.Exists(rutaConfiguracion))
                 {
                     /* Si existe el archivo lo lee y actualiza la tabla */
                     this.LeerXml();
@@ -193,12 +193,21 @@ namespace Formulario
 
         private void LeerXml()
         {
-            using (XmlTextReader reader = new XmlTextReader(path + @"\Peliculas.xml"))
+            try
             {
-                XmlSerializer serializador = new XmlSerializer(typeof(List<Pelicula>));
+                using (XmlTextReader reader = new XmlTextReader(rutaConfiguracion))
+                {
+                    XmlSerializer serializador = new XmlSerializer(typeof(List<Pelicula>));
 
-                this.mispeliculas.Peliculas = (List<Pelicula>)serializador.Deserialize(reader);
+                    this.mispeliculas.Peliculas = (List<Pelicula>)serializador.Deserialize(reader);
+                }
+
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnImportar_Click(object sender, EventArgs e)
@@ -225,7 +234,7 @@ namespace Formulario
         {
             try
             {
-                using (XmlTextWriter writer = new XmlTextWriter(path + @"\Peliculas.xml", Encoding.UTF8))
+                using (XmlTextWriter writer = new XmlTextWriter(rutaConfiguracion, Encoding.UTF8))
                 {
                     XmlSerializer serializador = new XmlSerializer(typeof(List<Pelicula>));
                     serializador.Serialize(writer, this.mispeliculas.Peliculas);
@@ -272,6 +281,7 @@ namespace Formulario
                 e.Cancel = true; // Cancela el cierre del formulario.
             }
         }
+
 
         private void btnOrdenarTituloA_Click(object sender, EventArgs e)
         {

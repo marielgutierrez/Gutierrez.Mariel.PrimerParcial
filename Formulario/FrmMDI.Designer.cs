@@ -72,14 +72,15 @@
             verUsuariosToolStripMenuItem.Name = "verUsuariosToolStripMenuItem";
             verUsuariosToolStripMenuItem.Size = new Size(138, 22);
             verUsuariosToolStripMenuItem.Text = "Ver Usuarios";
+            verUsuariosToolStripMenuItem.Click += verUsuariosToolStripMenuItem_Click;
             // 
             // lblUsuario
             // 
             lblUsuario.BackColor = Color.Transparent;
             lblUsuario.Font = new Font("Berlin Sans FB", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblUsuario.Location = new Point(627, 36);
+            lblUsuario.Location = new Point(498, 24);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(368, 30);
+            lblUsuario.Size = new Size(442, 30);
             lblUsuario.TabIndex = 3;
             lblUsuario.Text = "label1";
             // 
@@ -97,6 +98,7 @@
             Name = "FrmMDI";
             Text = "CineFlix";
             WindowState = FormWindowState.Maximized;
+            FormClosing += FrmMDI_FormClosing;
             Load += FrmMDI_Load;
             Resize += FrmMDI_Resize;
             menuStrip1.ResumeLayout(false);
