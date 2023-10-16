@@ -54,7 +54,7 @@ namespace Formulario
 
         private void EstablecerImagenFondo()
         {
-            Bitmap img = new Bitmap(Application.StartupPath + @"\img\pelis_fondito.jpg");
+            Bitmap img = new Bitmap(Application.StartupPath + @"\img\nueva_portada.jpg");
             this.BackgroundImage = img;
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }

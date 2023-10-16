@@ -19,18 +19,18 @@ namespace Formulario
         public FormPeliculaAccion(Entidades.PeliculaAccion p) : this()
         {
             this.txtTitulo.Text = p.Titulo;
-            this.dupEstreno.Text = p.Estreno.ToString();
+            this.nupEstreno.Value = p.Estreno;
             this.txtDirector.Text = p.Director;
 
             if (cmbNacionalidad.SelectedItem != null)
             {
-                p.Nacionalidad = (ENacionalidad)cmbNacionalidad.SelectedItem; 
+                p.Nacionalidad = (ENacionalidad)cmbNacionalidad.SelectedItem;
             }
 
             this.cmbActorPrincipal.SelectedItem = p.ActorPrincipal;
             this.cmbArmas.SelectedItem = p.Armas;
 
-            this.dupEstreno.Enabled = false;
+            this.nupEstreno.Enabled = false;
         }
 
 
@@ -57,19 +57,17 @@ namespace Formulario
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            int estreno = int.Parse(this.dupEstreno.Text);
-            
+            int valorEstreno = (int)nupEstreno.Value;
+
             ENacionalidad nacionalidadSeleccionada = (ENacionalidad)base.cmbNacionalidad.SelectedItem;
 
             string actorSeleccionado = cmbActorPrincipal.SelectedItem?.ToString() ?? "Desconocido";
             string armaSeleccionada = cmbArmas.SelectedItem?.ToString() ?? "No encontrada";
-            //double precio = double.Parse(this.txtPrecio.Text);
-
 
             if (base.CargarFormulario())
             {
-                this.peli = new PeliculaAccion(base.txtTitulo.Text, estreno, base.txtDirector.Text, 
-                    nacionalidadSeleccionada, actorSeleccionado,armaSeleccionada);
+                this.peli = new PeliculaAccion(base.txtTitulo.Text, valorEstreno, base.txtDirector.Text,
+                    nacionalidadSeleccionada, actorSeleccionado, armaSeleccionada);
                 this.DialogResult = DialogResult.OK;
             }
         }
@@ -92,6 +90,12 @@ namespace Formulario
             this.cmbArmas.Items.Add("Metralladora");
             this.cmbArmas.Items.Add("Rifle");
             this.cmbArmas.Items.Add("Escopeta");
+        }
+
+        private void FormPeliculaAccion_Load(object sender, EventArgs e)
+        {
+            cmbActorPrincipal.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbArmas.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         //private void AgregarEstrenosDup()

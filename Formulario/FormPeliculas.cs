@@ -20,7 +20,7 @@ namespace Formulario
 
         private void FormPeliculas_Load(object sender, EventArgs e)
         {
-
+            cmbNacionalidad.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         protected bool CargarFormulario()
@@ -39,10 +39,8 @@ namespace Formulario
 
         protected void AgregarEstrenosDup()
         {
-            for (int i = 1990; i <= 2023; i++)
-            {
-                this.dupEstreno.Items.Add(i.ToString());
-            }
+            nupEstreno.Minimum = 1990;
+            nupEstreno.Maximum = 2023;
 
         }
 

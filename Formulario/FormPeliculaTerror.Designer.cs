@@ -99,6 +99,7 @@
             Controls.Add(groupBox2);
             Name = "FormPeliculaTerror";
             Text = "FormPeliculaTerror";
+            Load += FormPeliculaTerror_Load;
             Controls.SetChildIndex(btnAceptar, 0);
             Controls.SetChildIndex(btnCancelar, 0);
             Controls.SetChildIndex(groupBox2, 0);

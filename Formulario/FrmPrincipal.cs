@@ -40,6 +40,8 @@ namespace Formulario
             cmbGenero.Items.Add("Comedia");
             cmbGenero.Items.Add("Terror");
 
+            cmbGenero.DropDownStyle = ComboBoxStyle.DropDownList;
+
             this.Text = "Crea tu pelicula";
             Bitmap img = new Bitmap(Application.StartupPath + @"\img\pelis_fondito.jpg");
             this.BackgroundImage = img;

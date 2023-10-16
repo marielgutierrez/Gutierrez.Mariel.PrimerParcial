@@ -17,7 +17,7 @@ namespace Formulario
         public FormPeliculaComedia(Entidades.PeliculaComedia p) : this()
         {
             this.txtTitulo.Text = p.Titulo;
-            this.dupEstreno.Text = p.Estreno.ToString();
+            this.nupEstreno.Value = p.Estreno;
             this.txtDirector.Text = p.Director;
 
             if (cmbNacionalidad.SelectedItem != null)
@@ -28,7 +28,7 @@ namespace Formulario
             this.cmbActorComedia.SelectedItem = p.ActorPrincipal;
             this.cmbComedia.SelectedItem = p.TipoComedia;
 
-            this.dupEstreno.Enabled = false;
+            this.nupEstreno.Enabled = false;
         }
 
 
@@ -48,7 +48,8 @@ namespace Formulario
 
         private void FormPelisComedia_Load(object sender, EventArgs e)
         {
-
+            cmbActorComedia.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbComedia.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 
@@ -59,7 +60,7 @@ namespace Formulario
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            int estreno = int.Parse(this.dupEstreno.Text);
+            int estreno = (int)this.nupEstreno.Value;
 
             ENacionalidad nacionalidadSeleccionada = (ENacionalidad)base.cmbNacionalidad.SelectedItem;
 

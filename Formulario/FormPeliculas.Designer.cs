@@ -33,14 +33,15 @@
             label1 = new Label();
             btnAceptar = new Button();
             groupBox1 = new GroupBox();
+            nupEstreno = new NumericUpDown();
             cmbNacionalidad = new ComboBox();
             label7 = new Label();
-            dupEstreno = new DomainUpDown();
             txtDirector = new TextBox();
             label6 = new Label();
             label5 = new Label();
             btnCancelar = new Button();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nupEstreno).BeginInit();
             SuspendLayout();
             // 
             // label2
@@ -84,9 +85,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(nupEstreno);
             groupBox1.Controls.Add(cmbNacionalidad);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(dupEstreno);
             groupBox1.Controls.Add(txtDirector);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
@@ -98,6 +99,14 @@
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información";
+            // 
+            // nupEstreno
+            // 
+            nupEstreno.Location = new Point(123, 67);
+            nupEstreno.Name = "nupEstreno";
+            nupEstreno.ReadOnly = true;
+            nupEstreno.Size = new Size(180, 23);
+            nupEstreno.TabIndex = 24;
             // 
             // cmbNacionalidad
             // 
@@ -115,14 +124,6 @@
             label7.Size = new Size(80, 15);
             label7.TabIndex = 22;
             label7.Text = "Nacionalidad:";
-            // 
-            // dupEstreno
-            // 
-            dupEstreno.BorderStyle = BorderStyle.FixedSingle;
-            dupEstreno.Location = new Point(123, 67);
-            dupEstreno.Name = "dupEstreno";
-            dupEstreno.Size = new Size(180, 23);
-            dupEstreno.TabIndex = 21;
             // 
             // txtDirector
             // 
@@ -178,6 +179,7 @@
             Load += FormPeliculas_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nupEstreno).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -193,7 +195,7 @@
         protected Button btnAceptar;
         protected TextBox txtTitulo;
         protected TextBox txtDirector;
-        protected DomainUpDown dupEstreno;
         protected ComboBox cmbNacionalidad;
+        protected NumericUpDown nupEstreno;
     }
 }
