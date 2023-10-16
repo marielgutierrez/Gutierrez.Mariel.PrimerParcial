@@ -125,7 +125,7 @@ namespace Entidades
         }
         #endregion
 
-        #region OPERADORES (falta implicit)
+        #region OPERADORES
         public static bool operator ==(Pelicula p1, Pelicula p2)
         {
             return p1.titulo == p2.titulo && p1.estreno == p2.estreno;

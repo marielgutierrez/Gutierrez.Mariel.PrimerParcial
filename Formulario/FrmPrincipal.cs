@@ -138,7 +138,6 @@ namespace Formulario
                 MessageBox.Show("Por favor, seleccione un tipo de pelicula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            //MessageBox.Show($"Se ha guardado la película:, Género: ");
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -277,21 +276,25 @@ namespace Formulario
         private void btnOrdenarTituloA_Click(object sender, EventArgs e)
         {
             this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorTituloAscendente);
+            this.ActualizarVisor();
         }
 
         private void btnOrdenarTituloD_Click(object sender, EventArgs e)
         {
             this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorTituloDescendente);
+            this.ActualizarVisor();
         }
 
         private void btnOrdenarEstrenoA_Click(object sender, EventArgs e)
         {
             this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorEstrenoAscendente);
+            this.ActualizarVisor();
         }
 
         private void btnOrdenarEstrenoD_Click(object sender, EventArgs e)
         {
             this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorEstrenoDescendente);
+            this.ActualizarVisor();
         }
     }
 }

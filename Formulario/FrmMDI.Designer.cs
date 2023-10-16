@@ -42,7 +42,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { peliculasToolStripMenuItem, usuariosToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(908, 24);
+            menuStrip1.Size = new Size(1007, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -75,12 +75,11 @@
             // 
             // lblUsuario
             // 
-            lblUsuario.AutoSize = true;
             lblUsuario.BackColor = Color.Transparent;
             lblUsuario.Font = new Font("Berlin Sans FB", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblUsuario.Location = new Point(628, 34);
+            lblUsuario.Location = new Point(627, 36);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(74, 30);
+            lblUsuario.Size = new Size(368, 30);
             lblUsuario.TabIndex = 3;
             lblUsuario.Text = "label1";
             // 
@@ -88,7 +87,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(908, 450);
+            ClientSize = new Size(1007, 450);
             Controls.Add(lblUsuario);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
