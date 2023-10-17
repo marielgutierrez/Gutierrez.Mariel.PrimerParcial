@@ -5,3 +5,6 @@
 **Resumen:** CineFlix es una aplicación que permite a los usuarios crear y gestionar sus propias películas. Después de iniciar sesión con un correo y contraseña válidos, los usuarios pueden ingresar detalles como título, año de estreno, director y nacionalidad para cada película. Cada tipo de película tiene características únicas. Una vez completado el formulario, la película se agrega a la lista, donde los usuarios pueden editar, eliminar, ordenar las películas por título o año y agregar películas a su gusto. También tienen la opción de guardar la lista en un archivo y en caso de ya tener un archivo con dicha lista puede importarla. Además, la aplicación permite a los usuarios ver datos de otros usuarios que han iniciado sesión.
 
 ## Diagrama de Clases
+
+![ClassDiagram1](https://github.com/marielgutierrez/Gutierrez.Mariel.PrimerParcial/assets/123014715/bb2840d5-3a2e-4d7d-b3df-35c9b61b2ec3)
+![ClassDiagram2](https://github.com/marielgutierrez/Gutierrez.Mariel.PrimerParcial/assets/123014715/eea1e1b5-abaf-492c-9342-384da37649f6)
