@@ -11,8 +11,16 @@ using System.Windows.Forms;
 
 namespace Formulario
 {
+    /// <summary>
+    /// Clase derivada de Form, cumple el rol de visualizador de la 
+    /// lista de usuarios que se encuentre en el archivo usuarios.log
+    /// </summary>
     public partial class FrmUsuarios : Form
     {
+        /// <summary>
+        /// Inicializa los componentes del formulario y 
+        /// llama al metodo LeerArchivoLog para leer el usuarios.log
+        /// </summary>
         public FrmUsuarios()
         {
             InitializeComponent();
@@ -21,6 +29,10 @@ namespace Formulario
             this.BackgroundImage = img;
             this.LeerArchivoLog();
         }
+        /// <summary>
+        /// Se encarga de leer todas las lineas del archivo usuarios.log y
+        /// agregarlas a un listbox para visualizar en el formulario.
+        /// </summary>
         private void LeerArchivoLog()
         {
             string filePath = "usuario.log";
@@ -36,10 +48,5 @@ namespace Formulario
                 MessageBox.Show("El archivo de registro no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
-
-
     }
 }

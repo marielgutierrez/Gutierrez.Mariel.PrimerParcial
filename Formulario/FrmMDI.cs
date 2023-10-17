@@ -11,17 +11,28 @@ using System.Windows.Forms;
 
 namespace Formulario
 {
+    /// <summary>
+    /// Clase derivada de Form, cumple el rol de manejar otras 
+    /// ventanas dentro de una única aplicación principal.
+    /// </summary>
     public partial class FrmMDI : Form
     {
         private FrmPrincipal? form1;
         private FrmUsuarios? form2;
+        /// <summary>
+        /// Inicializa los componentes del formulario.
+        /// </summary>
         public FrmMDI()
         {
             InitializeComponent();
 
             this.Text = "CineFlix";
-            //form1 = null;
         }
+        /// <summary>
+        /// Constructor se encarga de inicializar los componentes y
+        /// armar una cadena de texto con el nombre del usuario 'logueado' y la fecha de registro
+        /// </summary>
+        /// <param name="u"></param>
         public FrmMDI(Usuario u) : this()
         {
             StringBuilder sb = new StringBuilder();
@@ -31,12 +42,16 @@ namespace Formulario
             sb.ToString();
 
             lblUsuario.Text = sb.ToString();
-            //lblUsuario.Text = $"Bienvenido/a {u.Nombre} - [{DateTime.Now.ToString("dd/MM/yyyy")}]";
 
             this.CrearArchivoUsuario(u);
 
         }
-
+        /// <summary>
+        /// Maneja el evento Click del elemento de menú "Mis Películas". 
+        /// Abre una nueva ventana para mostrar la lista de películas del usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void misPeliculasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.form1 == null)
@@ -59,6 +74,9 @@ namespace Formulario
             this.form1 = null;
         }
 
+        /// <summary>
+        /// Se encarga de establecer el fondo de la ventana del MDI
+        /// </summary>
         private void EstablecerImagenFondo()
         {
             Bitmap img = new Bitmap(Application.StartupPath + @"\img\nueva_portada.jpg");
@@ -75,6 +93,11 @@ namespace Formulario
         {
             this.Refresh();
         }
+        /// <summary>
+        /// Se encarga de crear el archivo usuarios.log si no existe,
+        /// y escribe una linea con la informacion del usuario 'logueado'
+        /// </summary>
+        /// <param name="u"> el usuario 'logueado'</param>
         private void CrearArchivoUsuario(Usuario u)
         {
             string filePath = "usuario.log";
@@ -101,7 +124,12 @@ namespace Formulario
                 e.Cancel = true;
             }
         }
-
+        /// <summary>
+        /// Maneja el evento Click del elemento de menú "Ver Usuarios". 
+        /// Abre una nueva ventana para mostrar la lista de usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.form2 == null)
@@ -120,7 +148,6 @@ namespace Formulario
         }
         void CerrarForm2(object sender, FormClosedEventArgs e)
         {
-            //sender = sender ?? this;
             this.form2 = null;
         }
     }

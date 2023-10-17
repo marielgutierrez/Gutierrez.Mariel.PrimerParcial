@@ -84,14 +84,13 @@ namespace Formulario
                 MessageBox.Show("Error al importar archivo: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         /// <summary>
         /// Cuando el usuario hace click en el boton Crear, 
         /// se muestra el formulario correspondiente 
         /// al tipo de pelicula que se selecciono y 
-        /// se agrega la pelicula de dicho tipo a la lista de peliculas
+        /// se agrega la pelicula de dicho tipo a la lista de peliculas.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -108,7 +107,6 @@ namespace Formulario
                         if (frmPeliAccion.DialogResult == DialogResult.OK)
                         {
                             this.mispeliculas += frmPeliAccion.peli;
-                            //que se visualice en el listbox
                             this.ActualizarVisor();
                         }
                         break;
@@ -119,7 +117,6 @@ namespace Formulario
                         if (frmPeliComedia.DialogResult == DialogResult.OK)
                         {
                             this.mispeliculas += frmPeliComedia.peli;
-                            //que se visualice en el listbox
                             this.ActualizarVisor();
                         }
                         break;
@@ -139,13 +136,12 @@ namespace Formulario
             {
                 MessageBox.Show("Por favor, seleccione un tipo de pelicula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         /// <summary>
         /// Permite que el usuario pueda modificar 
         /// los datos de la pelicula seleccionada
-        /// teniendo en cuenta el tipo
+        /// teniendo en cuenta el tipo.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -171,7 +167,6 @@ namespace Formulario
                         this.mispeliculas.Peliculas[indice] = frm.peli;
                         this.ActualizarVisor();
                     }
-
                 }
                 else if (p is PeliculaComedia)
                 {
@@ -180,7 +175,6 @@ namespace Formulario
 
                     if (frm1.DialogResult == DialogResult.OK)
                     {
-                        // pisa el objeto orginal por el obj ya modificado
                         this.mispeliculas.Peliculas[indice] = frm1.peli;
                         this.ActualizarVisor();
                     }
@@ -192,7 +186,6 @@ namespace Formulario
 
                     if (frm2.DialogResult == DialogResult.OK)
                     {
-                        // pisa el objeto orginal por el obj ya modificado
                         this.mispeliculas.Peliculas[indice] = frm2.peli;
                         this.ActualizarVisor();
                     }
@@ -200,6 +193,10 @@ namespace Formulario
             }
         }
 
+        /// <summary>
+        /// Intenta leer el archivo xml con la colección genérica
+        /// si no pudo se muestra un mensaje.
+        /// </summary>
         private void LeerXml()
         {
             try
@@ -216,6 +213,13 @@ namespace Formulario
             }
         }
 
+        /// <summary>
+        /// Se encarga de importar un archivo desde el directorio que el usuario elija, 
+        /// tiene que contener la colección genérica.
+        /// En caso de no poder se muestra un mensaje.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImportar_Click(object sender, EventArgs e)
         {
             try
@@ -236,6 +240,12 @@ namespace Formulario
             }
         }
 
+        /// <summary>
+        /// Se encarga de escribir el archivo xml con la colección genérica.
+        /// Si no pudo se muestra un mensaje indicando el error.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -254,6 +264,12 @@ namespace Formulario
             }
         }
 
+        /// <summary>
+        /// Se encarga de eliminar de la colección la pelicula seleccionada por el usuario.
+        /// Muestra un mensaje de cual se eliminó
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int indice = this.lstPeliculas.SelectedIndex;
@@ -278,35 +294,60 @@ namespace Formulario
                 }
             }
         }
-
+        /// <summary>
+        /// Se encarga del cierre del formulario,
+        /// con posibilidad de cancelar el cierre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Estás seguro de que quieres salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
-                e.Cancel = true; //cancela el cierre del formulario.
+                e.Cancel = true;
             }
         }
 
-
+        /// <summary>
+        /// Cuando se apriete el boton correspondiente, se encarga de ordenar 
+        /// la colección por titulo de la pelicula de forma Ascendente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOrdenarTituloA_Click(object sender, EventArgs e)
         {
             this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorTituloAscendente);
             this.ActualizarVisor();
         }
-
+        /// <summary>
+        /// Cuando se apriete el boton correspondiente, se encarga de ordenar 
+        /// la colección por titulo de la pelicula de forma Descendente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOrdenarTituloD_Click(object sender, EventArgs e)
         {
             this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorTituloDescendente);
             this.ActualizarVisor();
         }
-
+        /// <summary>
+        /// Cuando se apriete el boton correspondiente, se encarga de ordenar 
+        /// la colección por estreno (año) de la pelicula de forma Ascendente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOrdenarEstrenoA_Click(object sender, EventArgs e)
         {
             this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorEstrenoAscendente);
             this.ActualizarVisor();
         }
-
+        /// <summary>
+        /// Cuando se apriete el boton correspondiente, se encarga de ordenar 
+        /// la colección por estreno (año) de la pelicula de forma Descendente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOrdenarEstrenoD_Click(object sender, EventArgs e)
         {
             this.mispeliculas.Peliculas.Sort(MisPeliculas.OrdenarPorEstrenoDescendente);

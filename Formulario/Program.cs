@@ -44,9 +44,6 @@ namespace Formulario
                     {
                         FrmMDI frm = new FrmMDI(frmLogin.UsuarioDelForm);
                         frm.StartPosition = FormStartPosition.CenterScreen;
-                        //FrmPrincipal frmAplicacion = new FrmPrincipal(frmLogin.UsuarioDelForm);
-                        //frmAplicacion.StartPosition = FormStartPosition.CenterScreen;
-
 
                         //INICIO LA APLICACION
                         Application.Run(frm);

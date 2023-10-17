@@ -3,6 +3,10 @@ using System.Text.Json;
 
 namespace Formulario
 {
+    /// <summary>
+    /// Clase que deriva de Form, cumple el rol de un formulario de Inicio de sesión.
+    /// Verifica que los datos ingresados por el usuario sean válidos para el ingreso a la aplicación.
+    /// </summary>
     public partial class FrmLogin : Form
     {
         private Usuario usuario;
@@ -13,20 +17,30 @@ namespace Formulario
         public FrmLogin()
         {
             InitializeComponent();
-            this.usuario = new Usuario();
-
         }
-        
+
+        //public FrmLogin(Usuario usuario): this()
+        //{
+        //    this.usuario = usuario;
+        //    this.txtCorreo.Focus();
+        //}
+        /// <summary>
+        /// Cuando se hace click en el boton Ingresar
+        /// se verifica que los datos sean validos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             this.usuario = this.Verificar();
-
             this.DialogResult = DialogResult.OK;
-
-            //FrmPrincipal frmPrincipal = new FrmPrincipal(this.usuario);
-            //frmPrincipal.ShowDialog();
         }
-
+        /// <summary>
+        /// Se encarga de verificar, al deserializar el json con los usuarios,
+        /// que los datos ingresados (correo y clave) coincidan con alguno de los
+        /// usuarios del archivo.
+        /// </summary>
+        /// <returns> un objeto Usuario</returns>
         private Usuario Verificar()
         {
             Usuario? rta = null;
@@ -60,13 +74,18 @@ namespace Formulario
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Estás seguro de que quieres salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                this.DialogResult = DialogResult.Cancel;
-                this.Close(); //Cierra el formulario.
-            }
+
+            this.DialogResult = DialogResult.Cancel;
+            //this.Close();
+
+            //DialogResult result = MessageBox.Show("¿Estás seguro de que quieres salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //if (result == DialogResult.Yes)
+            //{
+            //    this.DialogResult = DialogResult.Cancel;
+            //    //this.Close(); //Cierra el formulario.
+            //}
         }
+
 
     }
 }

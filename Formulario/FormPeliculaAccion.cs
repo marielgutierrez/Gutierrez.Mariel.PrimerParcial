@@ -13,9 +13,18 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Formulario
 {
+    /// <summary>
+    /// Clase derivada, maneja los componentes base y especificos del tipo de pelicula (Acción)
+    /// </summary>
     public partial class FormPeliculaAccion : FormPeliculas
     {
         public Entidades.PeliculaAccion peli;
+
+        /// <summary>
+        /// Constructor que permite manejar los atributos de la pelicula
+        /// traida por parametro. 
+        /// </summary>
+        /// <param name="p"> la pelicula de accion a modificar</param>
         public FormPeliculaAccion(Entidades.PeliculaAccion p) : this()
         {
             base.ModificarForm(p);
@@ -24,6 +33,9 @@ namespace Formulario
             this.cmbArmas.SelectedItem = p.Armas;
         }
 
+        /// <summary>
+        /// Inicializa los componentes de la clase base y los propios.
+        /// </summary>
         public FormPeliculaAccion():base()
         {
             InitializeComponent();
@@ -33,12 +45,17 @@ namespace Formulario
             this.peli = new PeliculaAccion();
         }
 
+        /// <summary>
+        /// Cuando se da click al boton aceptar se toman los datos que ingresó el usuario
+        /// sobre la pelicula
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTitulo.Text) || string.IsNullOrWhiteSpace(txtDirector.Text) ||
                 cmbActorPrincipal.SelectedItem == null || cmbArmas.SelectedItem == null)
             {
-                //muestra un mensaje de error si los campos no están completos
                 MessageBox.Show("Por favor, complete todos los campos requeridos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -57,6 +74,9 @@ namespace Formulario
             }
         }
 
+        /// <summary>
+        /// Agrega las opciones de Actores al combobox correspondiente
+        /// </summary>
         private void AgregarActoresCmbox()
         {
             this.cmbActorPrincipal.Items.Add("Jackie Chan");
@@ -68,6 +88,9 @@ namespace Formulario
             this.cmbActorPrincipal.Items.Add("Scarlett Johansson");
         }
 
+        /// <summary>
+        /// Agrega las opciones de Armas al combobox correspondiente
+        /// </summary>
         private void AgregarArmasCmbox()
         {
             this.cmbArmas.Items.Add("Pistola");
@@ -76,11 +99,15 @@ namespace Formulario
             this.cmbArmas.Items.Add("Rifle");
             this.cmbArmas.Items.Add("Escopeta");
         }
-
+        /// <summary>
+        /// Permite que el usuario no pueda escribir sobre los combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormPeliculaAccion_Load(object sender, EventArgs e)
         {
-            cmbActorPrincipal.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbArmas.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cmbActorPrincipal.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cmbArmas.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
     }

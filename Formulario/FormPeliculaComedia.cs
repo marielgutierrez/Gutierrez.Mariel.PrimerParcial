@@ -11,9 +11,18 @@ using System.Windows.Forms;
 
 namespace Formulario
 {
+    /// <summary>
+    /// Clase derivada, maneja los componentes base y especificos del tipo de pelicula (Comedia).
+    /// </summary>
     public partial class FormPeliculaComedia : FormPeliculas
     {
         public Entidades.PeliculaComedia peli;
+
+        /// <summary>
+        /// Constructor que permite manejar los atributos de la pelicula
+        /// traida por parametro. 
+        /// </summary>
+        /// <param name="p"> pelicula a modificar</param>
         public FormPeliculaComedia(Entidades.PeliculaComedia p) : this()
         {
             base.ModificarForm(p);
@@ -22,6 +31,9 @@ namespace Formulario
             this.cmbComedia.SelectedItem = p.TipoComedia;
         }
 
+        /// <summary>
+        /// Inicializa los componentes de la clase base y los propios.
+        /// </summary>
         public FormPeliculaComedia():base()
         {
             InitializeComponent();
@@ -30,12 +42,23 @@ namespace Formulario
             this.peli = new PeliculaComedia();
         }
 
+        /// <summary>
+        /// Permite que el usuario no pueda escribir sobre los combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormPelisComedia_Load(object sender, EventArgs e)
         {
             cmbActorComedia.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbComedia.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        /// <summary>
+        /// Cuando se da click al boton aceptar se toman los datos que ingresó el usuario
+        /// sobre la pelicula
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTitulo.Text) || string.IsNullOrWhiteSpace(txtDirector.Text) ||
@@ -61,6 +84,9 @@ namespace Formulario
             }
         }
 
+        /// <summary>
+        /// Agrega las opciones de Actores al combobox correspondiente.
+        /// </summary>
         private void AgregarActoresComedia()
         {
             this.cmbActorComedia.Items.Add("Jim Carrey");
@@ -72,6 +98,9 @@ namespace Formulario
             this.cmbActorComedia.Items.Add("Jack Black");
         }
 
+        /// <summary>
+        /// Agrega las opciones de Tipo de Comedia al combobox correspondiente.
+        /// </summary>
         private void AgregarComediaCmbox()
         {
             this.cmbComedia.Items.Add("Familiar");

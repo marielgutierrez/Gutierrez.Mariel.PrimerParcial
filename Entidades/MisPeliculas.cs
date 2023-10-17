@@ -36,7 +36,7 @@ namespace Entidades
         /// </summary>
         /// <param name="p"> pelicula creada por el usuario</param>
         /// <param name="mp"> clase que contiene la lista de peliculas</param>
-        /// <returns> retorno (true o false)</returns>
+        /// <returns> true si son iguales, de lo contrario false</returns>
         public static bool operator ==(Pelicula p, MisPeliculas mp)
         {
             bool retorno = false;
@@ -56,7 +56,7 @@ namespace Entidades
         /// </summary>
         /// <param name="p">pelicula creada por el usuario</param>
         /// <param name="mp"> clase que contiene la lista de peliculas</param>
-        /// <returns></returns>
+        /// <returns>true si son distintos, de lo contrario true</returns>
         public static bool operator !=(Pelicula p, MisPeliculas mp)
         {
             return !(p == mp);
@@ -98,17 +98,42 @@ namespace Entidades
 
             return mispelis;
         }
-
+        /// <summary>
+        /// Compara dos objetos de tipo Pelicula y los ordena por el título en orden ascendente
+        /// </summary>
+        /// <param name="p1">un objeto pelicula</param>
+        /// <param name="p2">otro objeto pelicula</param>
+        /// <returns>
+        /// Un valor menor que cero si el título de p1 es lexicográficamente anterior al título de p2.
+        /// Cero si los títulos son iguales.
+        /// Un valor mayor que cero si el título de p1 es lexicográficamente posterior al título de p2.
+        /// </returns>
         public static int OrdenarPorTituloAscendente(Pelicula p1, Pelicula p2)
         {
             return string.Compare(p1.Titulo, p2.Titulo, StringComparison.OrdinalIgnoreCase);
         }
-
+        /// <summary>
+        /// Compara dos objetos de tipo Pelicula y los ordena por el título en orden descendente
+        /// </summary>
+        /// <param name="p1">un objeto pelicula</param>
+        /// <param name="p2">otro objeto pelicula</param>
+        /// <returns>
+        /// Un valor mayor que cero si el título de p1 es lexicográficamente anterior al título de p2.
+        /// Cero si los títulos son iguales.
+        /// Un valor menor que cero si el título de p1 es lexicográficamente posterior al título de p2.
+        /// </returns>
         public static int OrdenarPorTituloDescendente(Pelicula p1, Pelicula p2)
         {
             return string.Compare(p2.Titulo, p1.Titulo, StringComparison.OrdinalIgnoreCase);
         }
-
+        /// <summary>
+        /// Compara dos objetos de tipo Pelicula y los ordena por el año de estreno en orden ascendente
+        /// </summary>
+        /// <param name="p1">un objeto pelicula</param>
+        /// <param name="p2">otro objeto pelicula</param>
+        /// <returns>
+        /// Un valor entero que indica la relación de orden entre los objetos
+        /// </returns>
         public static int OrdenarPorEstrenoAscendente(Pelicula p1, Pelicula p2)
         {
             if (p1.Estreno < p2.Estreno)
@@ -124,7 +149,14 @@ namespace Entidades
                 return 0;
             }
         }
-
+        /// <summary>
+        /// Compara dos objetos de tipo Pelicula y los ordena por el año de estreno en orden descendente
+        /// </summary>
+        /// <param name="p1">un objeto pelicula</param>
+        /// <param name="p2">otro objeto pelicula</param>
+        /// <returns>
+        /// Un valor entero que indica la relación de orden entre los objetos
+        /// </returns>
         public static int OrdenarPorEstrenoDescendente(Pelicula p1, Pelicula p2)
         {
             if (p1.Estreno < p2.Estreno)
@@ -140,7 +172,6 @@ namespace Entidades
                 return 0;
             }
         }
-
 
         //public override bool Equals(object obj)
         //{

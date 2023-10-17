@@ -8,7 +8,8 @@ using System.Xml.Serialization;
 namespace Entidades
 {
     /// <summary>
-    /// Clase base que maneja los atributos principales de una pelicula
+    /// Clase base que maneja los atributos principales de una pelicula:
+    /// titulo, año de estreno, director y nacionalidad.
     /// </summary>
     [XmlInclude(typeof(Entidades.PeliculaAccion))]
     [XmlInclude(typeof(Entidades.PeliculaTerror))]
@@ -58,6 +59,13 @@ namespace Entidades
             this.director = director;
             this.nacionalidad = nacionalidad;
         }
+        /// <summary>
+        /// Permite crear una película de acción especificando el título, año de estreno y
+        /// director. Por defecto, la nacionalidad se establece como Argentina.
+        /// </summary>
+        /// <param name="titulo">titulo de la pelicula</param>
+        /// <param name="estreno">estreno de la pelicula</param>
+        /// <param name="director">director de la pelicula</param>
         public Pelicula(string titulo, int estreno, string director)
          : this(titulo, estreno, director, ENacionalidad.Argentina)
         {
@@ -75,6 +83,11 @@ namespace Entidades
         }
 
         #region METODOS VIRTUAL Y ABSTRACT
+        /// <summary>
+        /// Se encarga de mostrar en una cadena de texto con los valores de los atributos
+        /// principales de una pelicula.
+        /// </summary>
+        /// <returns>informacion de la pelicula</returns>
         protected virtual string MostrarInformacion()
         {
             StringBuilder sb = new StringBuilder();
@@ -85,11 +98,17 @@ namespace Entidades
 
             return sb.ToString();
         }
+        /// <summary>
+        /// Utiliza el método MostrarInformacion para generar la representación de la película.
+        /// </summary>
+        /// <returns>Una cadena que representa la información detallada de la película.</returns>
         public override string ToString()
         {
             return this.MostrarInformacion(); 
         }
-
+        /// <summary>
+        /// Se determina su uso en las clases derivadas.
+        /// </summary>
         public abstract void ClasificarPelicula();
         #endregion
 
@@ -136,7 +155,11 @@ namespace Entidades
             return !(p1 == p2);
         }
 
-
+        /// <summary>
+        /// Operador convierte implicitamente el objeto pelicula a un entero,
+        /// que hace referencia al año de estreno.
+        /// </summary>
+        /// <param name="pelicula"> un objeto pelicula</param>
         public static implicit operator int(Pelicula pelicula)
         {
             return pelicula.estreno;
@@ -145,17 +168,26 @@ namespace Entidades
         #endregion  
 
         #region SOBREESCRITURA EQUIVALENCIAS
+        /// <summary>
+        /// Determina si el objeto actual es igual a otro objeto. 
+        /// La comparación se basa en el título y el año de estreno.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>True si los objetos son iguales, false en caso contrario.</returns>
         public override bool Equals(object? obj)
         {
-            bool retorno = false; // es mejor crear una variable antes de devolver dos return
-
-            if (obj is Pelicula)
+            bool retorno = false;
+            if (obj is Pelicula pelicula)
             {
-                retorno = this == (Pelicula)obj;
+                retorno =  this == pelicula;
             }
             return retorno;
         }
-        
+        /// <summary>
+        /// Calcula un código hash para la instancia actual de Pelicula. 
+        /// El código hash se basa en el título y el año de estreno.
+        /// </summary>
+        /// <returns>Un código hash para la instancia actual.</returns>
         public override int GetHashCode()
         {
             return (this.titulo,this.estreno).GetHashCode();

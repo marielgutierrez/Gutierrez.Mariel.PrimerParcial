@@ -1,4 +1,7 @@
-﻿public enum ENacionalidad
+﻿/// <summary>
+/// Representa: Nacionalidades que puede tener una película
+/// </summary>
+public enum ENacionalidad
 {
     Estadounidense,
     Argentina,
@@ -9,7 +12,9 @@
     Desconocida
 
 }
-
+/// <summary>
+/// Representa: Personajes que puede tener una película
+/// </summary>
 public enum EPersonajes
 {
     Chucky,

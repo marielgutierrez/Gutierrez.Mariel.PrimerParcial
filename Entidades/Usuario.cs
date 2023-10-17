@@ -38,7 +38,6 @@ namespace Entidades
         {
             get { return this.clave; }
             set { this.clave = value; }
-
         }
 
         [JsonPropertyName("legajo")]
@@ -75,7 +74,7 @@ namespace Entidades
             this.legajo = 0;
         }
         /// <summary>
-        /// obtiene la fecha y hora actual en una cadena de texto
+        /// Se encarga de obtener la fecha y hora actual en una cadena de texto
         /// </summary>
         /// <returns>la fecha y hora actual + informacion del usuario para el .log</returns>
         public override string ToString()
