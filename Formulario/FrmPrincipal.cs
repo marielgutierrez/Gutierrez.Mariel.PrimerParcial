@@ -250,6 +250,16 @@ namespace Formulario
         {
             try
             {
+                if (File.Exists(rutaConfiguracion))
+                {
+                    DialogResult resultado = MessageBox.Show("El archivo ya existe. ¿Desea sobrescribirlo?", "¡Atención!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (resultado == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+
                 using (XmlTextWriter writer = new XmlTextWriter(FrmPrincipal.rutaConfiguracion, Encoding.UTF8))
                 {
                     XmlSerializer serializador = new XmlSerializer(typeof(List<Pelicula>));
