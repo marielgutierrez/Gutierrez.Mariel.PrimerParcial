@@ -43,8 +43,8 @@ namespace Formulario
             this.cmbGenero.DropDownStyle = ComboBoxStyle.DropDownList;
 
             this.Text = "Crea tu pelicula";
-            Bitmap img = new Bitmap(Application.StartupPath + @"\img\pelis_fondito.jpg");
-            this.BackgroundImage = img;
+            //Bitmap img = new Bitmap(Application.StartupPath + @"\img\pelis_fondito.jpg");
+            //this.BackgroundImage = img;
 
             this.mispeliculas = new MisPeliculas();
         }
@@ -255,8 +255,8 @@ namespace Formulario
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string path = openFileDialog.FileName;
-                    
-                    if(VerificarFormatoXml(path))
+
+                    if (VerificarFormatoXml(path))
                     {
                         FrmPrincipal.rutaConfiguracion = path;
                         this.LeerXml();
@@ -267,7 +267,7 @@ namespace Formulario
                     {
                         MessageBox.Show("El archivo no contiene el formato correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
+
                 }
             }
             catch (IOException ex)

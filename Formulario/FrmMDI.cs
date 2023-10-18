@@ -74,19 +74,16 @@ namespace Formulario
             this.form1 = null;
         }
 
-        /// <summary>
-        /// Se encarga de establecer el fondo de la ventana del MDI
-        /// </summary>
-        private void EstablecerImagenFondo()
-        {
-            Bitmap img = new Bitmap(Application.StartupPath + @"\img\nueva_portada.jpg");
-            this.BackgroundImage = img;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-        }
+        //private void EstablecerImagenFondo()
+        //{
+        //    Bitmap img = new Bitmap(Application.StartupPath + @"\img\nueva_portada.jpg");
+        //    this.BackgroundImage = img;
+        //    this.BackgroundImageLayout = ImageLayout.Stretch;
+        //}
 
         private void FrmMDI_Load(object sender, EventArgs e)
         {
-            this.EstablecerImagenFondo();
+            //this.EstablecerImagenFondo();
         }
 
         private void FrmMDI_Resize(object sender, EventArgs e)

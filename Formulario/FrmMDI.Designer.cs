@@ -100,6 +100,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.nueva_portada;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1269, 450);
             Controls.Add(pictureBox1);
             Controls.Add(lblUsuario);

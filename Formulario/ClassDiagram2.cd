@@ -31,7 +31,7 @@
   <Class Name="Formulario.FrmLogin">
     <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAACACAABRAAQACAAAACAAAAAQQCACAAEAAAAAA=</HashCode>
+      <HashCode>IAAAAAACACAABRAAQAiAAAACAAAAAQQCACAAEAAAAAA=</HashCode>
       <FileName>FrmLogin.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,12 +45,12 @@
   <Class Name="Formulario.FrmMDI">
     <Position X="6.75" Y="0.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AQAAAAQAAiAAAAAAQACgMAAKIUAAAAAEAAAgGABBgAA=</HashCode>
+      <HashCode>AQAAAAQAAiAAAAAAQACgMAAKIQAAAAAEAAAgGABBgAA=</HashCode>
       <FileName>FrmMDI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Formulario.FrmUsuarios">
-    <Position X="9.75" Y="8.5" Width="2" />
+    <Position X="10" Y="8.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAABAAAACBAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FrmUsuarios.cs</FileName>

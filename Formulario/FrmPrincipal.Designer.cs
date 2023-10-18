@@ -189,6 +189,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.pelis_fondito;
             ClientSize = new Size(773, 436);
             Controls.Add(btnOrdenarEstrenoD);
             Controls.Add(btnOrdenarEstrenoA);
