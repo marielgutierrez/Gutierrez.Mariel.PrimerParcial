@@ -194,7 +194,31 @@ namespace Formulario
         }
 
         /// <summary>
-        /// Intenta leer el archivo xml con la colección genérica
+        /// Se encarga de verificar el formato del archivo.
+        /// </summary>
+        /// <param name="rutaArchivo"></param>
+        /// <returns>true si el formato es correcto y no es nulo ni esta vacio, de lo contrario false</returns>
+        private bool VerificarFormatoXml(string rutaArchivo)
+        {
+            try
+            {
+                using (XmlTextReader reader = new XmlTextReader(rutaArchivo))
+                {
+                    XmlSerializer serializador = new XmlSerializer(typeof(List<Pelicula>));
+                    var peliculas = (List<Pelicula>)serializador.Deserialize(reader);
+
+                    return peliculas != null && peliculas.Count > 0;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Intenta leer el archivo xml con la colección, 
+        /// la lista actual va a ser el contenido del archivo 
         /// si no pudo se muestra un mensaje.
         /// </summary>
         private void LeerXml()
@@ -227,11 +251,23 @@ namespace Formulario
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "Archivos XML (*.xml)|*.xml"; //descripcion del tipo de arch | filtro real * cualquier caracter antes
                 openFileDialog.InitialDirectory = FrmPrincipal.rutaConfiguracion;
+
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    FrmPrincipal.rutaConfiguracion = openFileDialog.FileName;
-                    this.LeerXml();
-                    this.ActualizarVisor();
+                    string path = openFileDialog.FileName;
+                    
+                    if(VerificarFormatoXml(path))
+                    {
+                        FrmPrincipal.rutaConfiguracion = path;
+                        this.LeerXml();
+                        this.ActualizarVisor();
+                        MessageBox.Show("El archivo se importó con éxito!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El archivo no contiene el formato correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
                 }
             }
             catch (IOException ex)

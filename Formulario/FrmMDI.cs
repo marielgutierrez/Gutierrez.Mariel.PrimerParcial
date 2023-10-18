@@ -68,7 +68,7 @@ namespace Formulario
             }
         }
 
-        void CerrarForm1(object sender, FormClosedEventArgs e)
+        void CerrarForm1(object? sender, FormClosedEventArgs e)
         {
             //sender = sender ?? this;
             this.form1 = null;
@@ -146,7 +146,7 @@ namespace Formulario
             }
 
         }
-        void CerrarForm2(object sender, FormClosedEventArgs e)
+        void CerrarForm2(object? sender, FormClosedEventArgs e)
         {
             this.form2 = null;
         }

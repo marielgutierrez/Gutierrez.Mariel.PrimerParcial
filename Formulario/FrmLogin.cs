@@ -67,9 +67,26 @@ namespace Formulario
             return rta;
         }
 
+        /// <summary>
+        /// Carga los Tooltips de los textbox correo y clave
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            this.CrearToolTip(this.txtCorreo, "Ingresar correo electrónico.");
+            this.CrearToolTip(this.txtClave, "Ingresar clave.");
 
+        }
+        /// <summary>
+        /// Se encarga de crear los Tooltips del textbox y mensaje traidos por parametro.
+        /// </summary>
+        /// <param name="textBox"> elemento textbox del form</param>
+        /// <param name="tip"> mensaje para vea el usuario</param>
+        private void CrearToolTip(System.Windows.Forms.TextBox textBox, string tip)
+        {
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+            toolTip.SetToolTip(textBox, tip);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

@@ -33,26 +33,25 @@
             label1 = new Label();
             txtCorreo = new TextBox();
             txtClave = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
             SuspendLayout();
             // 
             // btnIngresar
             // 
-            btnIngresar.BackColor = Color.LimeGreen;
+            btnIngresar.BackColor = Color.FromArgb(192, 0, 0);
             btnIngresar.FlatStyle = FlatStyle.Popup;
-            btnIngresar.ForeColor = SystemColors.ControlText;
-            btnIngresar.Location = new Point(27, 186);
+            btnIngresar.Font = new Font("Arial Rounded MT Bold", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnIngresar.ForeColor = Color.White;
+            btnIngresar.Location = new Point(38, 223);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(312, 45);
             btnIngresar.TabIndex = 0;
-            btnIngresar.Text = "INGRESAR";
+            btnIngresar.Text = "Iniciar sesión";
             btnIngresar.UseVisualStyleBackColor = false;
             btnIngresar.Click += btnIngresar_Click;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(264, 284);
+            btnSalir.Location = new Point(275, 351);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 1;
@@ -63,53 +62,46 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(27, 34);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Arial Rounded MT Bold", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(38, 39);
             label1.Name = "label1";
-            label1.Size = new Size(153, 30);
+            label1.Size = new Size(176, 32);
             label1.TabIndex = 2;
-            label1.Text = "INICIO SESION";
+            label1.Text = "Inicia sesión";
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(27, 96);
+            txtCorreo.BackColor = Color.Silver;
+            txtCorreo.BorderStyle = BorderStyle.FixedSingle;
+            txtCorreo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCorreo.ForeColor = SystemColors.ControlText;
+            txtCorreo.Location = new Point(38, 96);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(312, 23);
+            txtCorreo.PlaceholderText = "Correo electrónico";
+            txtCorreo.Size = new Size(312, 29);
             txtCorreo.TabIndex = 3;
             // 
             // txtClave
             // 
-            txtClave.Location = new Point(27, 145);
+            txtClave.BackColor = Color.Silver;
+            txtClave.BorderStyle = BorderStyle.FixedSingle;
+            txtClave.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtClave.Location = new Point(38, 155);
             txtClave.Name = "txtClave";
             txtClave.PasswordChar = '*';
-            txtClave.Size = new Size(312, 23);
+            txtClave.PlaceholderText = "Clave";
+            txtClave.Size = new Size(312, 29);
             txtClave.TabIndex = 4;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(27, 78);
-            label2.Name = "label2";
-            label2.Size = new Size(46, 15);
-            label2.TabIndex = 5;
-            label2.Text = "Correo:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(27, 127);
-            label3.Name = "label3";
-            label3.Size = new Size(70, 15);
-            label3.TabIndex = 6;
-            label3.Text = "Contraseña:";
             // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(366, 319);
-            Controls.Add(label3);
-            Controls.Add(label2);
+            BackgroundImage = Properties.Resources.inicio_cineflix;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(389, 399);
             Controls.Add(txtClave);
             Controls.Add(txtCorreo);
             Controls.Add(label1);
@@ -130,7 +122,5 @@
         private Label label1;
         private TextBox txtCorreo;
         private TextBox txtClave;
-        private Label label2;
-        private Label label3;
     }
 }
