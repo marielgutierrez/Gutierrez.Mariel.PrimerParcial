@@ -2,7 +2,7 @@
 
 ACLARACION: Profes, puede que aparezca un error de compilación como este:
 "Error	MSB3554	No se puede escribir en el archivo de salida "C:\Users\usuario\Documents\Gutierrez.Mariel.PrimerParcial-master\Formulario\obj\Debug\net6.0-windows\Formulario.Properties.Resources.resources". No se pudo encontrar el archivo 'C:\Users\usuario\Documents\Gutierrez.Mariel.PrimerParcial-master\Formulario\Resources\nueva_portada.jpg'."
-La verdad no sé como solucionarlo, porque cuando borre las imagenes de la carpeta bin para ponerlas en Resources y se muestren en github, automaticamente se borraron todos los demás archivos que estaban en el bin. Quería aclarar esto porque fue una gran frustración para mí ya que habia invertido dos semanas en el armado de la aplicación y tenía todo el código listo y funcionando, pero apareció ese error que no sé como solucionar. Gracias.
+La verdad ya probé de todo y no sé como solucionarlo, porque cuando borre las imagenes de la carpeta bin para ponerlas en Resources y se muestren en github, automaticamente se borraron todos los demás archivos que estaban en el bin. Quería aclarar esto porque fue una gran frustración para mí, ya que habia invertido dos semanas en el armado de la aplicación y tenía todo el código listo y funcionando, pero apareció ese error la noche anterior a la fecha de entrega y que no sé cómo solucionar. Gracias.
 
 :pushpin:**Sobre mi:** Me llamo Mariel Gutierrez, tengo 18 años y soy estudiante de la Tecnicatura universitaria en programación en la Universidad Tecnologica Nacional (Facultad regional de Avellaneda). Empecé a cursar a principios de marzo 2023. En este repositorio se encuentra el proyecto que realicé para el primer parcial de la materia Laboratorio II.
 
