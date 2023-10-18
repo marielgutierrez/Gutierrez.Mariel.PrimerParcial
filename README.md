@@ -11,5 +11,7 @@
 
 ACLARACION: Profes, PUEDE O NO que aparezca un error de compilación como este:
 "Error	MSB3554	No se puede escribir en el archivo de salida "C:\Users\usuario\Documents\Gutierrez.Mariel.PrimerParcial-master\Formulario\obj\Debug\net6.0-windows\Formulario.Properties.Resources.resources". No se pudo encontrar el archivo 'C:\Users\usuario\Documents\Gutierrez.Mariel.PrimerParcial-master\Formulario\Resources\nueva_portada.jpg'."
+Cuando lo soluciono me aparece este otro error:
+"Error	IDE1100	Error al leer el contenido del archivo de origen "C:\Users\usuario\Desktop\Gutierrez.Mariel\Formulario\obj\Debug\net6.0-windows\Formulario.AssemblyInfo.cs"--"No se pudo encontrar el archivo 'C:\Users\usuario\Desktop\Gutierrez.Mariel\Formulario\obj\Debug\net6.0-windows\Formulario.AssemblyInfo.cs'."
 La verdad ya probé de todo y no sé como solucionarlo, porque cuando borre las imagenes de la carpeta bin para ponerlas en Resources y se muestren en github, automaticamente se borraron todos los demás archivos que estaban en el bin. Quería aclarar esto porque fue una gran frustración para mí, ya que habia invertido dos semanas en el armado de la aplicación y tenía todo el código listo y funcionando, pero apareció ese error la noche anterior a la fecha de entrega y que no sé cómo solucionar. Gracias.
 
