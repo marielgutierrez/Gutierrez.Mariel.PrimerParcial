@@ -7,4 +7,4 @@
 ## Diagrama de Clases
 
 ![ClassDiagram1](https://github.com/marielgutierrez/Gutierrez.Mariel.PrimerParcial/assets/123014715/b6388a12-1b3a-4876-b3a0-50e0042b7342)
-![ClassDiagram2](https://github.com/marielgutierrez/Gutierrez.Mariel.PrimerParcial/assets/123014715/1c7054e6-4845-4fd7-9315-347a7f7b97ec)
+![ClassDiagram2](https://github.com/marielgutierrez/Gutierrez.Mariel.PrimerParcial/assets/123014715/ed9560f4-714e-4126-8113-e6c621dee232)
