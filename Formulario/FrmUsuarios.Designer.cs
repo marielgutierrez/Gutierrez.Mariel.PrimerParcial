@@ -47,6 +47,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.pelis_fondito2;
             ClientSize = new Size(961, 399);
             Controls.Add(lstUsuarios);
             MaximizeBox = false;

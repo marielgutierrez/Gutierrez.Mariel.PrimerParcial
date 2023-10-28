@@ -25,8 +25,8 @@ namespace Formulario
         {
             InitializeComponent();
             this.Text = "Ver Usuarios";
-            Bitmap img = new Bitmap(Application.StartupPath + @"\img\pelis_fondito.jpg");
-            this.BackgroundImage = img;
+            //Bitmap img = new Bitmap(Application.StartupPath + @"\img\pelis_fondito.jpg");
+            //this.BackgroundImage = img;
             this.LeerArchivoLog();
         }
         /// <summary>
