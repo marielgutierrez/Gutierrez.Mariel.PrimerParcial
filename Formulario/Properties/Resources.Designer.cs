@@ -103,6 +103,16 @@ namespace Formulario.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nueva_portada1 {
+            get {
+                object obj = ResourceManager.GetObject("nueva_portada1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pelis_fondito {
             get {
                 object obj = ResourceManager.GetObject("pelis_fondito", resourceCulture);
