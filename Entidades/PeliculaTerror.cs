@@ -94,7 +94,7 @@ namespace Entidades
         }
         #endregion
         /// <summary>
-        /// Utiliza la implementación base de Equals para comparar las instancias de manera predeterminada.
+        /// Utiliza la implementación base de Equals y atributos propios (personaje y tipoTerror) para comparar las instancias.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>
@@ -102,16 +102,15 @@ namespace Entidades
         /// </returns>
         public override bool Equals(object? obj)
         {
-            return base.Equals(obj);
+            if (obj is PeliculaTerror otraPeliTerror)
+            {
+                return base.Equals(obj) &&
+                       this.personaje == otraPeliTerror.personaje &&
+                       this.tipoTerror == otraPeliTerror.tipoTerror;
+            }
+            return false;
         }
-        /// <summary>
-        /// Utiliza el mismo criterio de hash que la clase base.
-        /// </summary>
-        /// <returns>El código hash calculado para la instancia actual</returns>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+       
         /// <summary>
         /// Utiliza el método MostrarInformacion para generar la representación de la película.
         /// </summary>

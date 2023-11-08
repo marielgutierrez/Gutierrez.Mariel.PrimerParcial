@@ -147,7 +147,9 @@ namespace Entidades
         #region OPERADORES
         public static bool operator ==(Pelicula p1, Pelicula p2)
         {
-            return p1.titulo == p2.titulo && p1.estreno == p2.estreno;
+            if (ReferenceEquals(p1, p2)) return true;
+            if (ReferenceEquals(p1, null) || ReferenceEquals(p2, null)) return false;
+            return p1.Equals(p2);
         }
 
         public static bool operator !=(Pelicula p1, Pelicula p2)
@@ -176,12 +178,11 @@ namespace Entidades
         /// <returns>True si los objetos son iguales, false en caso contrario.</returns>
         public override bool Equals(object? obj)
         {
-            bool retorno = false;
-            if (obj is Pelicula pelicula)
+            if (obj is Pelicula otraPelicula)
             {
-                retorno =  this == pelicula;
+                return string.Equals(this.titulo, otraPelicula.titulo) && this.estreno == otraPelicula.estreno;
             }
-            return retorno;
+            return false;
         }
         /// <summary>
         /// Calcula un código hash para la instancia actual de Pelicula. 
